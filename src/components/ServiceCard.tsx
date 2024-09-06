@@ -1,6 +1,7 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card";
-import { Button } from "./ui/button";
+import { buttonVariants } from "./ui/button";
 import { services } from "../app/const/Services";
+import Link from "next/link";
 
 export default function ServiceCard() {
     return (
@@ -24,7 +25,7 @@ export default function ServiceCard() {
                                     </ul>
                                 </CardContent>
                                 <CardFooter className="mt-auto">
-                                    <Button className="w-full hover:bg-rose-400 bg-rose-300 font-bold">Reservar servicio de {service.title}</Button>
+                                    <Link href="#contact" className={`${buttonVariants()} w-full font-semibold bg-rose-300 hover:bg-rose-400`}>Agendar cita de {service.title}</Link>
                                 </CardFooter>
                             </Card>
                         ))

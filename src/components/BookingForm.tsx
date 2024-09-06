@@ -4,7 +4,7 @@ import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./ui/card";
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "./ui/select";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem, SelectLabel, SelectGroup } from "./ui/select";
 import { services } from "@/app/const/Services";
 export default function BookingForm() {
     const [name, setName] = useState("");
@@ -12,6 +12,7 @@ export default function BookingForm() {
     const [service, setService] = useState("");
     const [speciality, setSpeciality] = useState("");
     const [date, setDate] = useState("");
+    const [error, setError] = useState("");
 
     function formatDate(dateString: string): string {
         // Convertir la cadena de fecha a un objeto Date en UTC
@@ -33,6 +34,12 @@ export default function BookingForm() {
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+
+        if (speciality === "") {
+            setError("Por favor, selecciona una especialidad.");
+            return;
+        }
+
         const formatedDate = formatDate(date);
         console.log({ name, email, service, speciality, formatedDate });
         // Número de teléfono de destino (con código de país)
@@ -70,52 +77,58 @@ export default function BookingForm() {
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
                                         <Label htmlFor="name">Nombre</Label>
-                                        <Input id="name" placeholder="Enter your name"
+                                        <Input id="name" placeholder="María López ..." required
                                             value={name} onChange={(e) => setName(e.target.value)} />
                                     </div>
                                     <div>
                                         <Label htmlFor="email">Email</Label>
-                                        <Input id="email" type="email" placeholder="Enter your email"
+                                        <Input id="email" type="email" placeholder="ejemplo@domain.com" required
                                             value={email} onChange={(e) => setEmail(e.target.value)} />
                                     </div>
                                 </div>
                                 <div>
                                     <Label htmlFor="service">Servicio</Label>
-                                    <Select onValueChange={handleServiceChange}>
+                                    <Select onValueChange={handleServiceChange} required>
                                         <SelectTrigger id="service">
                                             <SelectValue placeholder="Selecciona un servicio" />
                                         </SelectTrigger>
                                         <SelectContent>
-                                            <SelectItem value="0">Selecciona un servicio</SelectItem>
-                                            {services && services.length > 0 && (
-                                                services.map((service) => (
-                                                    <SelectItem key={service.id} value={service.title}>{service.title}</SelectItem>
-                                                ))
-                                            )}
+                                            <SelectGroup>
+                                                <SelectLabel>Servicios</SelectLabel>
+                                                {services && services.length > 0 && (
+                                                    services.map((service) => (
+                                                        <SelectItem key={service.id} value={service.title}>{service.title}</SelectItem>
+                                                    ))
+                                                )}
+                                            </SelectGroup>
                                         </SelectContent>
                                     </Select>
                                 </div>
                                 {selectedService && (
                                     <div>
                                         <Label htmlFor="service-type">Especialidad</Label>
-                                        <Select onValueChange={setSpeciality} value={speciality}>
+                                        <Select onValueChange={setSpeciality} value={speciality} required={speciality === ""}>
                                             <SelectTrigger id="service-type">
                                                 <SelectValue placeholder="Selecciona una especialidad" />
                                             </SelectTrigger>
                                             <SelectContent>
-                                                {selectedService?.info?.map((info, index) => (
-                                                    <SelectItem key={index} value={info.title}>{info.title}</SelectItem>
-                                                ))}
+                                                <SelectGroup>
+                                                    <SelectLabel>Especialidad</SelectLabel>
+                                                    {selectedService?.info?.map((info, index) => (
+                                                        <SelectItem key={index} value={info.title}>{info.title}</SelectItem>
+                                                    ))}
+                                                </SelectGroup>
                                             </SelectContent>
                                         </Select>
+                                        {error && <p className="text-red-500 text-sm">{error}</p>}
                                     </div>
                                 )}
                                 <div>
                                     <Label htmlFor="date">Fecha</Label>
-                                    <Input id="date" type="date"
+                                    <Input id="date" type="date" required
                                         value={date} onChange={(e) => setDate(e.target.value)} />
                                 </div>
-                                <Button type="submit" className="font-medium text-md">Hacer reservación</Button>
+                                <Button type="submit" className="font-medium text-md">Agendar cita</Button>
                             </div>
                         </form>
                     </CardContent>
