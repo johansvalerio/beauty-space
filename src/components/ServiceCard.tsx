@@ -4,13 +4,13 @@ import { services } from "../app/const/Services";
 
 export default function ServiceCard() {
     return (
-        <section id="services" className="mb-20 scroll-mt-20">
-            <h2 className="text-3xl text-white font-bold text-start mx-16">Servicios</h2>
-            <article className="grid md:grid-cols-3 gap-8 m-16">
+        <section id="services" className="scroll-mt-20 m-16 space-y-8">
+            <h2 className="text-3xl text-white font-bold text-start">Servicios</h2>
+            <article className="grid grid-cols-1 md:grid-cols-3 w-full md:justify-items-center gap-8">
                 {
                     services && services.length > 0 ? (
                         services.map((service) => (
-                            <Card key={service.id} className="flex flex-col h-full">
+                            <Card key={service.id} className="w-full flex flex-col h-full">
                                 <CardHeader>
                                     <CardTitle>{service.title}</CardTitle>
                                     <CardDescription>{service.description}</CardDescription>

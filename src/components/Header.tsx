@@ -5,7 +5,6 @@ export default function Header() {
                 <h1 className="text-2xl  font-bold text-pink-300"><a href="/">Beauty Space CR</a></h1>
                 <ul className="flex space-x-4 ">
                     <li><a href="#services" className="text-gray-800 hover:text-pink-600">Services</a></li>
-                    <li><a href="#" className="text-gray-800 hover:text-pink-600">About</a></li>
                     <li><a href="#contact" className="text-gray-800 hover:text-pink-600">Contact</a></li>
                 </ul>
             </nav>
