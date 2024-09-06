@@ -21,7 +21,8 @@ export const metadata: Metadata = {
   title: "Beauty Space CR",
   description: "Isabel Navarro Elizondo",
   icons: {
-    icon: "/mkicon.ico",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
   }
 };
 
@@ -32,6 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-rose-300 to-purple-300`}
       >
