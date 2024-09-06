@@ -7,7 +7,7 @@ export default function Hero() {
             <div className="relative h-96 rounded-lg overflow-hidden">
                 <img src="/img/beauty.jpg" alt="Beauty Space CR" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-pink-600 bg-opacity-30 flex items-center justify-center">
-                    <h3 className="text-3xl font-bold text-white">Beauty Space CR</h3>
+                    <h3 className="text-3xl font-bold text-white">Experimenta Beauty Space CR</h3>
                 </div>
             </div>
         </section>

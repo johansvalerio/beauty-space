@@ -4,8 +4,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-
-
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -20,10 +18,6 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Beauty Space CR",
   description: "Isabel Navarro Elizondo",
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-  }
 };
 
 export default function RootLayout({
@@ -33,9 +27,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-rose-300 to-purple-300`}
       >

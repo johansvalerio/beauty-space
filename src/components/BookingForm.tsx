@@ -47,10 +47,17 @@ export default function BookingForm() {
         window.open(whatsappUrl, "_blank");
     }
 
+    // Al cambiar de servicio, reseteamos la especialidad
+    const handleServiceChange = (newService: string) => {
+        setService(newService);
+        setSpeciality(""); // Resetea el campo de especialidad al cambiar el servicio
+    };
+
     const selectedService = services.find((s) => s.title === service);
 
+
     return (
-        <section id="contact" className="m-16 z-20">
+        <section id="contact" className="m-16 scroll-mt-20">
             <article className="grid grid-cols-1 md:grid-cols-1 md:justify-items-center gap-8">
                 <Card className="w-full">
                     <CardHeader>
@@ -74,7 +81,7 @@ export default function BookingForm() {
                                 </div>
                                 <div>
                                     <Label htmlFor="service">Servicio</Label>
-                                    <Select onValueChange={setService}>
+                                    <Select onValueChange={handleServiceChange}>
                                         <SelectTrigger id="service">
                                             <SelectValue placeholder="Selecciona un servicio" />
                                         </SelectTrigger>
@@ -91,12 +98,12 @@ export default function BookingForm() {
                                 {selectedService && (
                                     <div>
                                         <Label htmlFor="service-type">Especialidad</Label>
-                                        <Select onValueChange={setSpeciality}>
+                                        <Select onValueChange={setSpeciality} value={speciality}>
                                             <SelectTrigger id="service-type">
                                                 <SelectValue placeholder="Selecciona una especialidad" />
                                             </SelectTrigger>
                                             <SelectContent>
-                                                {selectedService.info?.map((info, index) => (
+                                                {selectedService?.info?.map((info, index) => (
                                                     <SelectItem key={index} value={info.title}>{info.title}</SelectItem>
                                                 ))}
                                             </SelectContent>

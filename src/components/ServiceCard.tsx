@@ -4,7 +4,7 @@ import { services } from "../app/const/Services";
 
 export default function ServiceCard() {
     return (
-        <section id="services">
+        <section id="services" className="mb-20 scroll-mt-20">
             <h2 className="text-3xl text-white font-bold text-start mx-16">Servicios</h2>
             <article className="grid md:grid-cols-3 gap-8 m-16">
                 {
