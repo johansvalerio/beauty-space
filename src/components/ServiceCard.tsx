@@ -4,7 +4,7 @@ import { services } from "../app/const/Services";
 
 export default function ServiceCard() {
     return (
-        <section id="services" className="scroll-mt-20 m-16 space-y-8">
+        <section id="services" className="scroll-mt-20 m-8 md:m-16 space-y-8">
             <h2 className="text-3xl text-white font-bold text-start">Servicios</h2>
             <article className="grid grid-cols-1 md:grid-cols-3 w-full md:justify-items-center gap-8">
                 {

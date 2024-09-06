@@ -57,7 +57,7 @@ export default function BookingForm() {
 
 
     return (
-        <section id="contact" className="m-16 scroll-mt-20">
+        <section id="contact" className="m-4 md:m-16 scroll-mt-20">
             <article className="grid grid-cols-1 md:grid-cols-1 md:justify-items-center gap-8">
                 <Card className="w-full">
                     <CardHeader>
