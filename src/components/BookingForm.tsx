@@ -138,7 +138,7 @@ export default function BookingForm() {
                                     <Input id="date" type="date" required
                                         value={date} onChange={(e) => setDate(e.target.value)} />
                                 </div>
-                                <Button type="submit" className="font-medium text-md bg-rose-300 hover:bg-rose-400">Agendar cita</Button>
+                                <Button type="submit" className="font-medium text-lg bg-rose-300 hover:bg-rose-400">Agendar cita</Button>
                             </div>
                         </form>
                     </CardContent>
