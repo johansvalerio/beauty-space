@@ -10,9 +10,6 @@ export const services: ServiceProps[] = [
                 title: "Pie clínico",
             },
             {
-                title: "Micosis",
-            },
-            {
                 title: "Onicocriptosis",
             },
             {

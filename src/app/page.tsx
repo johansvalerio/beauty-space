@@ -11,6 +11,7 @@ import {
 } from "@tsparticles/engine";
 
 function HomePage() {
+
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -32,7 +33,7 @@ function HomePage() {
         events: {
           onClick: {
             enable: true,
-            mode: "repulse", // Al hacer clic, se añaden más partículas
+            mode: "repulse", // Al hacer clic, se añaden más partículas con push
           },
           onHover: {
             enable: true,
@@ -75,7 +76,7 @@ function HomePage() {
             enable: true,
             area: 800, // Controla la densidad de las partículas
           },
-          value: 40, // Cantidad de partículas
+          value: 80, // Cantidad de partículas
         },
         opacity: {
           value: 0.8, // Transparencia de las partículas
