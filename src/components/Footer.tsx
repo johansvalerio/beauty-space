@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { Facebook, Instagram } from 'lucide-react';
+import { Instagram, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
     return (
@@ -9,14 +9,14 @@ export default function Footer() {
                     <div>
                         <h4 className="text-lg font-semibold mb-4">Contacto</h4>
                         <p className="text-gray-600">Cañas, Gte.</p>
-                        <p className="text-gray-600">Teléfono: (506) 8801 5998</p>
+                        <a href="https://wa.me/50688015998" target="_blank" className="flex gap-1 text-green-600 hover:text-green-400 font-semibold">WhatsApp<MessageCircle /></a>
                         <p className="text-gray-600">Email: isabelbe9266@gmail.com</p>
                     </div>
                     <div>
                         <h4 className="text-lg font-semibold mb-4">Sígueme en</h4>
                         <div className="flex  gap-4">
-                            <a href="#" className="text-gray-600 flex gap-1 items-center hover:text-pink-600">Facebook <Facebook /> </a>
-                            <a href="#" className="text-gray-600 flex gap-1 items-center hover:text-pink-600">Instagram <Instagram /> </a>
+                            {/* <a href="#" className="text-gray-600 flex gap-1 items-center hover:text-pink-600">Facebook <Facebook /> </a> */}
+                            <a href="https://www.instagram.com/beauty_space_cr/?hl=es" target="_blank" className="flex gap-1 items-center font-semibold text-pink-600 hover:text-pink-400">Instagram <Instagram /> </a>
                         </div>
                     </div>
                 </div>

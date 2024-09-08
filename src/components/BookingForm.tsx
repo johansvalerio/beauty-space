@@ -35,7 +35,7 @@ export default function BookingForm() {
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
-        if (speciality === "") {
+        if (speciality === "" && service !== "Quiropodia") {
             setError("Por favor, selecciona una especialidad.");
             return;
         }
@@ -44,6 +44,16 @@ export default function BookingForm() {
         console.log({ name, email, service, speciality, formatedDate });
         // Número de teléfono de destino (con código de país)
         const phoneNumber = "+50688015998"; // Reemplázalo por el número de teléfono que deseas
+
+        if (service === "Quiropodia") {
+            // Mensaje de WhatsApp
+            const message = `*Reservación para Servicio de ${service}*\nNombre: ${name}\nEmail: ${email}\nServicio: ${service}\nFecha: ${formatedDate}`;
+            // Construir la URL para enviar el mensaje por WhatsApp
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+
+            // Redirigir a la URL de WhatsApp
+            window.open(whatsappUrl, "_blank");
+        }
 
         // Mensaje de WhatsApp
         const message = `*Reservación para Servicio de ${service}*\nNombre: ${name}\nEmail: ${email}\nServicio: ${service}\nEspecialidad: ${speciality}\nFecha: ${formatedDate}`;
@@ -104,10 +114,10 @@ export default function BookingForm() {
                                         </SelectContent>
                                     </Select>
                                 </div>
-                                {selectedService && (
+                                {selectedService && selectedService.title !== "Quiropodia" && (
                                     <div>
                                         <Label htmlFor="service-type">Especialidad</Label>
-                                        <Select onValueChange={setSpeciality} value={speciality} required={speciality === ""}>
+                                        <Select onValueChange={setSpeciality} value={speciality}>
                                             <SelectTrigger id="service-type">
                                                 <SelectValue placeholder="Selecciona una especialidad" />
                                             </SelectTrigger>
@@ -128,7 +138,7 @@ export default function BookingForm() {
                                     <Input id="date" type="date" required
                                         value={date} onChange={(e) => setDate(e.target.value)} />
                                 </div>
-                                <Button type="submit" className="font-medium text-md">Agendar cita</Button>
+                                <Button type="submit" className="font-medium text-md bg-rose-300 hover:bg-rose-400">Agendar cita</Button>
                             </div>
                         </form>
                     </CardContent>
