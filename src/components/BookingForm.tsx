@@ -1,77 +1,61 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./ui/card";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem, SelectLabel, SelectGroup } from "./ui/select";
 import { services } from "@/app/const/Services";
-export default function BookingForm() {
+
+export default function BookingForm({ serviceName }: { serviceName: string }) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [service, setService] = useState("");
+    const [service, setService] = useState(serviceName || "");
     const [speciality, setSpeciality] = useState("");
     const [date, setDate] = useState("");
     const [error, setError] = useState("");
 
-    function formatDate(dateString: string): string {
-        // Convertir la cadena de fecha a un objeto Date en UTC
-        const date = new Date(dateString + 'T00:00:00Z');
+    // Actualiza el estado del servicio cuando cambia el nombre del servicio desde ServiceCard
+    useEffect(() => {
+        if (serviceName) {
+            setService(serviceName); // Actualiza el servicio cuando cambia en ServiceCard
+            setSpeciality(""); // Limpia la especialidad cuando cambia el servicio
+        }
+    }, [serviceName]);
 
-        // Crear arrays para nombres de días y meses
+    const selectedService = services.find((s) => s.title === service);
+
+    function formatDate(dateString: string): string {
+        const date = new Date(dateString + 'T00:00:00Z');
         const days = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
         const months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
-
-        // Obtener el nombre del día, el número del día, el mes y el año
         const dayName = days[date.getUTCDay()];
         const dayNumber = date.getUTCDate();
         const month = months[date.getUTCMonth()];
         const year = date.getUTCFullYear();
-
-        // Retornar la fecha en el formato deseado
         return `${dayName} ${dayNumber}/${month}/${year}`;
     }
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-
         if (speciality === "" && service !== "Quiropodia") {
             setError("Por favor, selecciona una especialidad.");
             return;
         }
-
         const formatedDate = formatDate(date);
-        console.log({ name, email, service, speciality, formatedDate });
-        // Número de teléfono de destino (con código de país)
-        const phoneNumber = "+50688015998"; // Reemplázalo por el número de teléfono que deseas
+        const phoneNumber = "+50688015998";
+        const message = service === "Quiropodia"
+            ? `*Reservación para Servicio de ${service}*\nNombre: ${name}\nEmail: ${email}\nServicio: ${service}\nFecha: ${formatedDate}`
+            : `*Reservación para Servicio de ${service}*\nNombre: ${name}\nEmail: ${email}\nServicio: ${service}\nEspecialidad: ${speciality}\nFecha: ${formatedDate}`;
 
-        if (service === "Quiropodia") {
-            // Mensaje de WhatsApp
-            const message = `*Reservación para Servicio de ${service}*\nNombre: ${name}\nEmail: ${email}\nServicio: ${service}\nFecha: ${formatedDate}`;
-            // Construir la URL para enviar el mensaje por WhatsApp
-            const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-
-            // Redirigir a la URL de WhatsApp
-            window.open(whatsappUrl, "_blank");
-        }
-
-        // Mensaje de WhatsApp
-        const message = `*Reservación para Servicio de ${service}*\nNombre: ${name}\nEmail: ${email}\nServicio: ${service}\nEspecialidad: ${speciality}\nFecha: ${formatedDate}`;
-        // Construir la URL para enviar el mensaje por WhatsApp
         const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-
-        // Redirigir a la URL de WhatsApp
         window.open(whatsappUrl, "_blank");
     }
 
-    // Al cambiar de servicio, reseteamos la especialidad
     const handleServiceChange = (newService: string) => {
         setService(newService);
-        setSpeciality(""); // Resetea el campo de especialidad al cambiar el servicio
+        setSpeciality(""); // Resetea la especialidad cuando se cambia el servicio
     };
-
-    const selectedService = services.find((s) => s.title === service);
-
 
     return (
         <section id="contact" className="m-4 md:m-16 scroll-mt-20">
@@ -98,18 +82,18 @@ export default function BookingForm() {
                                 </div>
                                 <div>
                                     <Label htmlFor="service">Servicio</Label>
-                                    <Select onValueChange={handleServiceChange} required>
+                                    <Select onValueChange={handleServiceChange} value={service} required>
                                         <SelectTrigger id="service">
                                             <SelectValue placeholder="Selecciona un servicio" />
                                         </SelectTrigger>
                                         <SelectContent>
                                             <SelectGroup>
                                                 <SelectLabel>Servicios</SelectLabel>
-                                                {services && services.length > 0 && (
-                                                    services.map((service) => (
-                                                        <SelectItem key={service.id} value={service.title}>{service.title}</SelectItem>
-                                                    ))
-                                                )}
+                                                {services.map((service) => (
+                                                    <SelectItem key={service.id} value={service.title}>
+                                                        {service.title}
+                                                    </SelectItem>
+                                                ))}
                                             </SelectGroup>
                                         </SelectContent>
                                     </Select>
@@ -144,7 +128,6 @@ export default function BookingForm() {
                     </CardContent>
                 </Card>
             </article>
-
         </section>
-    )
+    );
 }

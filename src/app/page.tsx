@@ -13,6 +13,7 @@ import {
 function HomePage() {
 
   const [init, setInit] = useState(false);
+  const [serviceName, setServiceName] = useState("");
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -101,6 +102,8 @@ function HomePage() {
     [],
   );
 
+
+
   return (
     <>
       {init && (
@@ -114,8 +117,8 @@ function HomePage() {
 
       <div className="relative z-10">
         <Hero />
-        <ServiceCard />
-        <BookingForm />
+        <ServiceCard setServiceName={setServiceName} />
+        <BookingForm serviceName={serviceName} />
       </div>
     </>
   );
