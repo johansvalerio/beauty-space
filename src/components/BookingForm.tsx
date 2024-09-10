@@ -52,11 +52,11 @@ export default function BookingForm({ serviceName }: { serviceName: string }) {
             return;
         }
         const formatedDate = formatDate(date);
-        console.log(formatedDate);
         const phoneNumber = "+50688015998";
+
         const message = service === "Quiropodia"
-            ? `*Reservación para Servicio de ${service}*\nNombre: ${name}\nEmail: ${email}\nServicio: ${service}\nFecha: ${formatedDate}`
-            : `*Reservación para Servicio de ${service}*\nNombre: ${name}\nEmail: ${email}\nServicio: ${service}\nEspecialidad: ${speciality}\nFecha: ${formatedDate}`;
+            ? `🗓 *Reservación Confirmada*\n\n💅 *Servicio:* ${service}\n👤 *Nombre:* _${name}_\n📧 *Email:* _${email}_\n🕒 *Fecha:* ${formatedDate}\n\n¡Gracias por tu reserva! 💖✨`
+            : `🗓 *Reservación Confirmada*\n\n💅 *Servicio:* ${service}\n💆‍♀️ *Tipo de servicio:* ${speciality}\n👤 *Nombre:* _${name}_\n📧 *Email:* _${email}_\n🕒 *Fecha:* ${formatedDate}\n\n¡Gracias por tu reserva! 💖✨`;
 
         const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, "_blank");
