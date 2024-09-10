@@ -45,7 +45,7 @@ export const services: ServiceProps[] = [
                 title: "Tratamientos",
             },
             {
-                title: "Alizados orgánicos",
+                title: "Alisados orgánicos",
             },
             {
                 title: "Peinados",

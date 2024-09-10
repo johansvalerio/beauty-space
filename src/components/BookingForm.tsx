@@ -100,14 +100,14 @@ export default function BookingForm({ serviceName }: { serviceName: string }) {
                                 </div>
                                 {selectedService && selectedService.title !== "Quiropodia" && (
                                     <div>
-                                        <Label htmlFor="service-type">Especialidad</Label>
-                                        <Select onValueChange={setSpeciality} value={speciality}>
+                                        <Label htmlFor="service-type">Tipo de servicio</Label>
+                                        <Select onValueChange={setSpeciality} value={speciality} required>
                                             <SelectTrigger id="service-type">
                                                 <SelectValue placeholder="Selecciona una especialidad" />
                                             </SelectTrigger>
                                             <SelectContent>
                                                 <SelectGroup>
-                                                    <SelectLabel>Especialidad</SelectLabel>
+                                                    <SelectLabel>Tipo de servicio</SelectLabel>
                                                     {selectedService?.info?.map((info, index) => (
                                                         <SelectItem key={index} value={info.title}>{info.title}</SelectItem>
                                                     ))}

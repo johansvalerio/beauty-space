@@ -9,7 +9,6 @@ interface ServiceCardProps {
     setServiceName: React.Dispatch<React.SetStateAction<string>>;
 }
 
-
 export default function ServiceCard({ setServiceName }: ServiceCardProps) {
     return (
         <section id="services" className="scroll-mt-20 m-8 md:m-16 space-y-8">
