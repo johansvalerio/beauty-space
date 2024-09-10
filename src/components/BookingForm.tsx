@@ -26,14 +26,23 @@ export default function BookingForm({ serviceName }: { serviceName: string }) {
     const selectedService = services.find((s) => s.title === service);
 
     function formatDate(dateString: string): string {
-        const date = new Date(dateString + 'T00:00:00Z');
+        const date = new Date(dateString);
         const days = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
         const months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
-        const dayName = days[date.getUTCDay()];
-        const dayNumber = date.getUTCDate();
-        const month = months[date.getUTCMonth()];
-        const year = date.getUTCFullYear();
-        return `${dayName} ${dayNumber}/${month}/${year}`;
+
+        const dayName = days[date.getDay()];
+        const dayNumber = date.getDate();
+        const month = months[date.getMonth()];
+        const year = date.getFullYear();
+
+        let hours = date.getHours();
+        const minutes = date.getMinutes().toString().padStart(2, "0");
+
+        // Convertir a formato de 12 horas
+        const ampm = hours >= 12 ? "PM" : "AM";
+        hours = hours % 12 || 12; // Convierte el 0 (medianoche) a 12
+
+        return `${dayName} ${dayNumber}/${month}/${year} \nA las ${hours}:${minutes} ${ampm}`;
     }
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -43,6 +52,7 @@ export default function BookingForm({ serviceName }: { serviceName: string }) {
             return;
         }
         const formatedDate = formatDate(date);
+        console.log(formatedDate);
         const phoneNumber = "+50688015998";
         const message = service === "Quiropodia"
             ? `*Reservación para Servicio de ${service}*\nNombre: ${name}\nEmail: ${email}\nServicio: ${service}\nFecha: ${formatedDate}`
@@ -119,7 +129,7 @@ export default function BookingForm({ serviceName }: { serviceName: string }) {
                                 )}
                                 <div>
                                     <Label htmlFor="date">Fecha</Label>
-                                    <Input id="date" type="date" required
+                                    <Input id="date" type="datetime-local" required
                                         value={date} onChange={(e) => setDate(e.target.value)} />
                                 </div>
                                 <Button type="submit" className="font-medium text-lg bg-rose-300 hover:bg-rose-400">Agendar cita</Button>
