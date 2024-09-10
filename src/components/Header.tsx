@@ -6,7 +6,8 @@ export default function Header() {
                     <img src="/img/logo.png" alt="Beauty Space CR Logo" className="w-18 h-12" /></a>
                 <ul className="flex space-x-4 ">
                     <li><a href="#services" className="text-gray-600 hover:text-pink-600">Servicios</a></li>
-                    <li><a href="#contact" className="text-gray-600 hover:text-pink-600">Contacto</a></li>
+                    <li><a href="#contact" className="text-gray-600 hover:text-pink-600">Agendar</a></li>
+                    <li><a href="#info" className="text-gray-600 hover:text-pink-600">Info</a></li>
                 </ul>
             </nav>
         </header>
