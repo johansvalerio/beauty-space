@@ -1,7 +1,7 @@
 
 export default function Hero() {
     return (
-        <section className="mx-4 my-10 md:m-16 text-center">
+        <section id="hero" className="scroll-mt-40 mx-4 my-10 md:m-16 text-center">
             <h2 className="text-4xl font-bold text-white mb-4 uppercase">Descubre tu belleza</h2>
             <p className="text-xl text-white mb-8">Servicios de quiropodia, peluquería, maquillaje, manicura y pedicura.</p>
             <div className="relative h-96 rounded-lg overflow-hidden">

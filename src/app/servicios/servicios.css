@@ -1,0 +1,23 @@
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 30%;
+  }
+  25% {
+    background-position: 20% 50%;
+  }
+  50% {
+    background-position: 40% 70%;
+  }
+  75% {
+    background-position: 60% 85%;
+  }
+  100% {
+    background-position: 80% 100%;
+  }
+}
+
+#price {
+  background-size: 200% 200%; /* Hace que el gradiente tenga suficiente espacio para moverse */
+  background-position: 0% 50%; /* Posición inicial del gradiente */
+  animation: gradient-move 2s infinite alternate linear; /* Anima el movimiento del gradiente */
+}

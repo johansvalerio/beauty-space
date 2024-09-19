@@ -4,10 +4,11 @@ export default function Header() {
             <nav className="container mx-auto py-3 md:py-4 flex justify-between items-center">
                 <a href="/" className="flex gap-1 items-center">
                     <img src="/img/logo.png" alt="Beauty Space CR Logo" className="w-18 h-12" /></a>
-                <ul className="flex space-x-4 ">
-                    <li><a href="#services" className="text-gray-600 hover:text-pink-600">Servicios</a></li>
-                    <li><a href="#contact" className="text-gray-600 hover:text-pink-600">Agendar</a></li>
-                    <li><a href="#info" className="text-gray-600 hover:text-pink-600">Info</a></li>
+                <ul className="flex space-x-2 md:space-x-4 ">
+                    <li><a href="/#hero" className="text-gray-600 hover:text-pink-600">Home</a></li>
+                    <li><a href="/#services" className="text-gray-600 hover:text-pink-600">Servicios</a></li>
+                    <li><a href="/#contact" className="text-gray-600 hover:text-pink-600">Agendar</a></li>
+                    <li><a href="/#info" className="text-gray-600 hover:text-pink-600">Info</a></li>
                 </ul>
             </nav>
         </header>

@@ -11,7 +11,7 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ setServiceName }: ServiceCardProps) {
     return (
-        <section id="services" className="scroll-mt-20 m-8 md:m-16 space-y-8">
+        <section id="services" className="scroll-mt-28 m-8 md:m-16 space-y-8">
             <h2 className="text-3xl text-white font-bold text-start">Servicios</h2>
             <article className="grid grid-cols-1 md:grid-cols-3 w-full md:justify-items-center gap-8">
                 {services && services.length > 0 ? (
@@ -32,9 +32,10 @@ export default function ServiceCard({ setServiceName }: ServiceCardProps) {
                             <CardFooter className="mt-auto">
                                 <Link
                                     onClick={() => setServiceName(service.title)}
-                                    href="#contact"
+                                    // href="#contact"
+                                    href={`/servicios/${service.title.toLocaleLowerCase()}`}
                                     className={`${buttonVariants()} w-full font-semibold bg-rose-300 hover:bg-rose-400`}>
-                                    Agendar cita de {service.title}
+                                    Ver más
                                 </Link>
                             </CardFooter>
                         </Card>

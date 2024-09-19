@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
@@ -25,7 +25,7 @@ export default function BookingForm({ serviceName }: { serviceName: string }) {
 
     const selectedService = services.find((s) => s.title === service);
 
-    function formatDate(dateString: string): string {
+    const formatDate = useCallback((dateString: string) => {
         const date = new Date(dateString);
         const days = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
         const months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
@@ -43,7 +43,7 @@ export default function BookingForm({ serviceName }: { serviceName: string }) {
         hours = hours % 12 || 12; // Convierte el 0 (medianoche) a 12
 
         return `${dayName} ${dayNumber}/${month}/${year} \nA las ${hours}:${minutes} ${ampm}`;
-    }
+    }, [])
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -68,7 +68,7 @@ export default function BookingForm({ serviceName }: { serviceName: string }) {
     };
 
     return (
-        <section id="contact" className="m-4 md:m-16 scroll-mt-20">
+        <section id="contact" className="scroll-mt-28 m-4 md:m-16">
             <article className="grid grid-cols-1 md:grid-cols-1 md:justify-items-center gap-8">
                 <Card className="w-full">
                     <CardHeader>
@@ -119,6 +119,7 @@ export default function BookingForm({ serviceName }: { serviceName: string }) {
                                                 <SelectGroup>
                                                     <SelectLabel>Tipo de servicio</SelectLabel>
                                                     {selectedService?.info?.map((info, index) => (
+                                                        info.title &&
                                                         <SelectItem key={index} value={info.title}>{info.title}</SelectItem>
                                                     ))}
                                                 </SelectGroup>

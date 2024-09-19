@@ -3,7 +3,7 @@ import { Instagram, MessageCircle, MapPinIcon, Mail } from 'lucide-react';
 
 export default function Footer() {
     return (
-        <footer id="info" className="bg-white">
+        <footer id="info" className="bg-white mt-auto">
             <div className="container mx-auto px-4 py-8">
                 <div className="grid md:grid-cols-3 gap-8 p-4">
                     <div>
