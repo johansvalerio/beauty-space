@@ -32,9 +32,9 @@ export default function ServiceCard({ setServiceName }: ServiceCardProps) {
                             <CardFooter className="mt-auto">
                                 <Link
                                     onClick={() => setServiceName(service.title)}
-                                    // href="#contact"
-                                    href={`/servicios/${service.title.toLocaleLowerCase()}`}
-                                    className={`${buttonVariants()} w-full font-semibold bg-rose-300 hover:bg-rose-400 pointer-events-none`}>
+                                    href="#contact"
+                                    // href={`/servicios/${service.title.toLocaleLowerCase()}`}
+                                    className={`${buttonVariants()} w-full font-semibold bg-rose-300 hover:bg-rose-400 `}>
                                     Ver más
                                 </Link>
                             </CardFooter>
