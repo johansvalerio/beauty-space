@@ -35,7 +35,7 @@ export default function ServiceCard({ setServiceName }: ServiceCardProps) {
                                     href="#contact"
                                     // href={`/servicios/${service.title.toLocaleLowerCase()}`}
                                     className={`${buttonVariants()} w-full font-semibold bg-rose-300 hover:bg-rose-400 `}>
-                                    Ver más
+                                    {/* Ver más */} Agendar cita de {service.title}
                                 </Link>
                             </CardFooter>
                         </Card>
