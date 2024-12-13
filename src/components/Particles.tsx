@@ -74,7 +74,7 @@ function ParticlesLayer() {
         <>
             {init && (
                 <Particles
-                    className="absolute top-0 left-0 w-full h-full -z-10"
+                    className="absolute top-0 left-0 w-full h-full -z-20"
                     id="tsparticles"
                     particlesLoaded={particlesLoaded}
                     options={options}
