@@ -18,6 +18,8 @@ export default function ServiceDetailsPage({ params }: Params) {
     const serviceData = services.find(service => service.title.toLocaleLowerCase() === params.id)
     if (!serviceData) return (<div>Service not found</div>)
 
+    //renderiza esto si es peluqueria o maquillaje
+
     if (serviceData.title.toLocaleLowerCase() === "peluqueria" || serviceData.title.toLocaleLowerCase() === "maquillaje") {
         return (
             <>
@@ -114,6 +116,7 @@ export default function ServiceDetailsPage({ params }: Params) {
         )
     }
 
+    //renderiza esto si  NO es peluqueria o maquillaje
     return (
         <>
             <ParticlesLayer />  {/* efecto bubbles  */}

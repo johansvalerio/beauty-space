@@ -114,7 +114,7 @@ export const services: ServiceProps[] = [
             {
                 title: "Esmaltado semipermanente",
                 description: "Acabado brillante y duradero por semanas, ideal para mantener las uñas impecables sin deteriorarse.",
-                price: "₡ 6.000"
+                price: "₡ 7.000"
             }
         ]
     },
@@ -360,7 +360,7 @@ export const services: ServiceProps[] = [
                 title: "Esmaltado semipermanente",
                 description: "Acabado brillante y duradero por semanas, ideal para mantener las uñas impecables y estéticas.",
                 img: "/img/pedicura/esmaltado.jpg",
-                price: "₡ 6.000"
+                price: "₡ 8.000"
             }
 
         ]

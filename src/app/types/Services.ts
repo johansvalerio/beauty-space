@@ -23,5 +23,6 @@ export interface SubInfo {
     description?: string;
     price?: string;
     img?: string;
+
 }
 
