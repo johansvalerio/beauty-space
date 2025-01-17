@@ -83,10 +83,10 @@ export const services: ServiceProps[] = [
                 img: "/img/manicura/gelx.jpg"
             },
             {
-                title: "Rubber Base",
-                description: "Base flexible y resistente que protege las uñas naturales, brindando mayor adherencia y durabilidad al esmaltado.",
-                price: "₡ 12.000",
-                img: "/img/manicura/rubber.jpg"
+                title: "Builder Gel",
+                description: "Gel constructor de alta densidad utilizado para esculpir y dar forma a uñas, proporcionando fuerza y durabilidad en aplicaciones extensas.",
+                price: "₡ 10.000",
+                img: "/img/manicura/builder.jpg"
             },
             {
                 title: "Polygel",
@@ -113,10 +113,10 @@ export const services: ServiceProps[] = [
                 img: "/img/manicura/dual.jpg"
             },
             {
-                title: "Builder Gel",
-                description: "Gel constructor de alta densidad utilizado para esculpir y dar forma a uñas, proporcionando fuerza y durabilidad en aplicaciones extensas.",
-                price: "₡ 10.000",
-                img: "/img/manicura/builder.jpg"
+                title: "Rubber Base",
+                description: "Base flexible y resistente que protege las uñas naturales, brindando mayor adherencia y durabilidad al esmaltado.",
+                price: "₡ 12.000",
+                img: "/img/manicura/rubber.jpg"
             },
             {
                 title: "Esmaltado semipermanente",

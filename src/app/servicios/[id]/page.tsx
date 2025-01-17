@@ -125,7 +125,7 @@ export default function ServiceDetailsPage({ params }: Params) {
                 <article>
                     <h1 className="text-4xl font-bold text-white mb-4 uppercase">Servicios de {serviceData.title}</h1>
                     <div className="relative h-96 rounded-lg overflow-hidden">
-                        <img src={serviceData.img} alt={serviceData.description} className="w-full h-full object-cover" />
+                        <img src={serviceData.img} alt={serviceData.description} className="w-full h-72 object-cover" />
                         <div className="absolute inset-0 bg-pink-600 bg-opacity-20 flex items-center justify-center">
                         </div>
                     </div>
@@ -134,7 +134,7 @@ export default function ServiceDetailsPage({ params }: Params) {
                 <article className="grid grid-cols-1 md:grid-cols-3 w-full md:justify-items-center gap-8">
                     {
                         serviceData.info?.map((info) => (
-                            <Card key={info.title} className="w-full flex flex-col h-full">
+                            <Card key={info.title} className="w-full text-center flex flex-col h-full">
                                 <CardHeader>
                                     <CardTitle>{info.title}</CardTitle>
                                     <CardDescription>
@@ -154,8 +154,8 @@ export default function ServiceDetailsPage({ params }: Params) {
                                 {/* Verificamos si el servicio tienes imagen antes de renderizarla */}
                                 {
                                     info.img &&
-                                    <CardContent className="mt-auto mx-auto">
-                                        <img src={info.img} alt={info.title} className="w-full h-72 object-cover rounded-md mb-4" />
+                                    <CardContent className="max-auto mt-auto">
+                                        <img src={info.img} alt={info.title} className="w-full h-72 object-cover rounded-md mb-4 " />
                                     </CardContent>
                                 }
 
