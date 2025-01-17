@@ -154,7 +154,7 @@ export default function ServiceDetailsPage({ params }: Params) {
                                 {/* Verificamos si el servicio tienes imagen antes de renderizarla */}
                                 {
                                     info.img &&
-                                    <CardContent className="mt-auto">
+                                    <CardContent className="mt-auto mx-auto">
                                         <img src={info.img} alt={info.title} className="w-full h-72 object-cover rounded-md mb-4" />
                                     </CardContent>
                                 }
