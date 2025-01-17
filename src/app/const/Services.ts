@@ -79,42 +79,50 @@ export const services: ServiceProps[] = [
             {
                 title: "Soft Gel / Gel X",
                 description: "Extensiones de gel suave que proporcionan un acabado natural y flexible, ideales para uñas fuertes y de aspecto delicado.",
-                price: "₡ 13.000"
+                price: "₡ 13.000",
+                img: "/img/manicura/gelx.jpg"
             },
             {
                 title: "Rubber Base",
                 description: "Base flexible y resistente que protege las uñas naturales, brindando mayor adherencia y durabilidad al esmaltado.",
-                price: "₡ 12.000"
+                price: "₡ 12.000",
+                img: "/img/manicura/rubber.jpg"
             },
             {
                 title: "Polygel",
                 description: "Combinación de gel y acrílico que ofrece una aplicación ligera y flexible, ideal para esculpir uñas resistentes sin el peso del acrílico.",
-                price: "₡ 13.000"
+                price: "₡ 13.000",
+                img: "/img/manicura/polygel.jpg"
             },
             {
                 title: "Acrílico",
                 description: "Sistema clásico de uñas esculpidas que ofrece resistencia y durabilidad, perfecto para quienes buscan un acabado robusto y duradero.",
-                price: "₡ 12.000"
+                price: "₡ 12.000",
+                img: "/img/manicura/acrilico.jpg"
             },
             {
                 title: "Híbridas",
                 description: "Técnica que combina diferentes sistemas como gel y acrílico, ofreciendo lo mejor de ambos para una mayor flexibilidad y resistencia.",
-                price: "₡ 15.000"
+                price: "₡ 15.000",
+                img: "/img/manicura/hibridas.jpg"
             },
             {
                 title: "Dual System",
                 description: "Método rápido y eficiente para crear uñas esculpidas con moldes, combinando la fuerza del acrílico con la flexibilidad del gel.",
-                price: "₡ 14.000"
+                price: "₡ 14.000",
+                img: "/img/manicura/dual.jpg"
             },
             {
                 title: "Builder Gel",
                 description: "Gel constructor de alta densidad utilizado para esculpir y dar forma a uñas, proporcionando fuerza y durabilidad en aplicaciones extensas.",
-                price: "₡ 10.000"
+                price: "₡ 10.000",
+                img: "/img/manicura/builder.jpg"
             },
             {
                 title: "Esmaltado semipermanente",
                 description: "Acabado brillante y duradero por semanas, ideal para mantener las uñas impecables sin deteriorarse.",
-                price: "₡ 7.000"
+                price: "₡ 7.000",
+                img: "/img/manicura/semipermanente.jpg"
             }
         ]
     },
