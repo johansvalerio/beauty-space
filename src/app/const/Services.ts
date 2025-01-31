@@ -19,7 +19,7 @@ export const services: ServiceProps[] = [
             },
             {
 
-                title: "Deslamación de hiperqueratosis",
+                title: "Deslaminación de hiperqueratosis",
                 description: "Eliminación de capas gruesas de piel para aliviar molestias, mejorar la estética del pie y prevenir complicaciones futuras"
             },
             {
