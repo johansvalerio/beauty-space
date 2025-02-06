@@ -19,7 +19,7 @@ export const services: ServiceProps[] = [
             },
             {
 
-                title: "Deslaminación de hiperqueratosis",
+                title: "Deslaminación de callosidades",
                 description: "Eliminación de capas gruesas de piel para aliviar molestias, mejorar la estética del pie y prevenir complicaciones futuras"
             },
             {
@@ -29,7 +29,7 @@ export const services: ServiceProps[] = [
             },
             {
 
-                title: "Tratamiento de callosidades y helomas",
+                title: "Tratamiento para hiperqueratosis y helomas",
                 description: "Reducción de callosidades y helomas para mejorar la comodidad y la salud del pie"
             },
             {
@@ -350,7 +350,7 @@ export const services: ServiceProps[] = [
                 title: "Pedicure spa",
                 description: "Tratamiento relajante con exfoliación, hidratación y masaje, para dejar los pies suaves y revitalizados.",
                 img: "/img/pedicura/pedicura-spa.jpg",
-                price: "₡ 10.000"
+                price: "₡ 13.000"
             },
             {
                 title: "Pedicure clínico",

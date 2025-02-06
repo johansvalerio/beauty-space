@@ -6,6 +6,8 @@ import { Button } from "./ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./ui/card";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem, SelectLabel, SelectGroup } from "./ui/select";
 import { services } from "@/app/const/Services";
+import { motion } from "framer-motion";
+import { useInView } from 'react-intersection-observer';
 
 export default function BookingForm({ serviceName }: { serviceName: string }) {
     const [name, setName] = useState("");
@@ -14,6 +16,11 @@ export default function BookingForm({ serviceName }: { serviceName: string }) {
     const [speciality, setSpeciality] = useState("");
     const [date, setDate] = useState("");
     const [error, setError] = useState("");
+
+    const { ref, inView } = useInView({
+        threshold: 0.1,
+        triggerOnce: false,
+    });
 
     // Actualiza el estado del servicio cuando cambia el nombre del servicio desde ServiceCard
     useEffect(() => {
@@ -69,76 +76,83 @@ export default function BookingForm({ serviceName }: { serviceName: string }) {
 
     return (
         <section id="contact" className="scroll-mt-28 m-4 md:m-16">
-            <article className="grid grid-cols-1 md:grid-cols-1 md:justify-items-center gap-8">
-                <Card className="w-full">
-                    <CardHeader>
-                        <CardTitle>Reservaciones</CardTitle>
-                        <CardDescription>Selecciona el servicio y la fecha de tu preferencia</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <form onSubmit={handleSubmit}>
-                            <div className="grid gap-4">
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <Label htmlFor="name">Nombre</Label>
-                                        <Input id="name" placeholder="María López ..." required
-                                            value={name} onChange={(e) => setName(e.target.value)} />
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.7, ease: 'linear' }}
+            >
+                <article ref={ref} className="grid grid-cols-1 md:grid-cols-1 md:justify-items-center gap-8">
+                    <Card className="w-full">
+                        <CardHeader>
+                            <CardTitle>Reservaciones</CardTitle>
+                            <CardDescription>Selecciona el servicio y la fecha de tu preferencia</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <form onSubmit={handleSubmit}>
+                                <div className="grid gap-4">
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <Label htmlFor="name">Nombre</Label>
+                                            <Input id="name" placeholder="María López ..." required
+                                                value={name} onChange={(e) => setName(e.target.value)} />
+                                        </div>
+                                        <div>
+                                            <Label htmlFor="email">Email</Label>
+                                            <Input id="email" type="email" placeholder="ejemplo@domain.com" required
+                                                value={email} onChange={(e) => setEmail(e.target.value)} />
+                                        </div>
                                     </div>
                                     <div>
-                                        <Label htmlFor="email">Email</Label>
-                                        <Input id="email" type="email" placeholder="ejemplo@domain.com" required
-                                            value={email} onChange={(e) => setEmail(e.target.value)} />
-                                    </div>
-                                </div>
-                                <div>
-                                    <Label htmlFor="service">Servicio</Label>
-                                    <Select onValueChange={handleServiceChange} value={service} required>
-                                        <SelectTrigger id="service">
-                                            <SelectValue placeholder="Selecciona un servicio" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectGroup>
-                                                <SelectLabel>Servicios</SelectLabel>
-                                                {services.map((service) => (
-                                                    <SelectItem key={service.id} value={service.title}>
-                                                        {service.title}
-                                                    </SelectItem>
-                                                ))}
-                                            </SelectGroup>
-                                        </SelectContent>
-                                    </Select>
-                                </div>
-                                {selectedService && selectedService.title !== "Quiropodia" && (
-                                    <div>
-                                        <Label htmlFor="service-type">Tipo de servicio</Label>
-                                        <Select onValueChange={setSpeciality} value={speciality} required>
-                                            <SelectTrigger id="service-type">
-                                                <SelectValue placeholder="Selecciona una especialidad" />
+                                        <Label htmlFor="service">Servicio</Label>
+                                        <Select onValueChange={handleServiceChange} value={service} required>
+                                            <SelectTrigger id="service">
+                                                <SelectValue placeholder="Selecciona un servicio" />
                                             </SelectTrigger>
                                             <SelectContent>
                                                 <SelectGroup>
-                                                    <SelectLabel>Tipo de servicio</SelectLabel>
-                                                    {selectedService?.info?.map((info, index) => (
-                                                        info.title &&
-                                                        <SelectItem key={index} value={info.title}>{info.title}</SelectItem>
+                                                    <SelectLabel>Servicios</SelectLabel>
+                                                    {services.map((service) => (
+                                                        <SelectItem key={service.id} value={service.title}>
+                                                            {service.title}
+                                                        </SelectItem>
                                                     ))}
                                                 </SelectGroup>
                                             </SelectContent>
                                         </Select>
-                                        {error && <p className="text-red-500 text-sm">{error}</p>}
                                     </div>
-                                )}
-                                <div>
-                                    <Label htmlFor="date">Fecha</Label>
-                                    <Input id="date" type="datetime-local" required
-                                        value={date} onChange={(e) => setDate(e.target.value)} />
+                                    {selectedService && selectedService.title !== "Quiropodia" && (
+                                        <div>
+                                            <Label htmlFor="service-type">Tipo de servicio</Label>
+                                            <Select onValueChange={setSpeciality} value={speciality} required>
+                                                <SelectTrigger id="service-type">
+                                                    <SelectValue placeholder="Selecciona una especialidad" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectGroup>
+                                                        <SelectLabel>Tipo de servicio</SelectLabel>
+                                                        {selectedService?.info?.map((info, index) => (
+                                                            info.title &&
+                                                            <SelectItem key={index} value={info.title}>{info.title}</SelectItem>
+                                                        ))}
+                                                    </SelectGroup>
+                                                </SelectContent>
+                                            </Select>
+                                            {error && <p className="text-red-500 text-sm">{error}</p>}
+                                        </div>
+                                    )}
+                                    <div>
+                                        <Label htmlFor="date">Fecha</Label>
+                                        <Input id="date" type="datetime-local" required
+                                            value={date} onChange={(e) => setDate(e.target.value)} />
+                                    </div>
+                                    <Button type="submit" className="font-medium text-lg bg-rose-300 hover:bg-rose-400">Agendar cita</Button>
                                 </div>
-                                <Button type="submit" className="font-medium text-lg bg-rose-300 hover:bg-rose-400">Agendar cita</Button>
-                            </div>
-                        </form>
-                    </CardContent>
-                </Card>
-            </article>
+                            </form>
+                        </CardContent>
+                    </Card>
+                </article>
+            </motion.div>
         </section>
     );
 }
