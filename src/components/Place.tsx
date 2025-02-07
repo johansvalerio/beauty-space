@@ -16,12 +16,15 @@ export default function Place() {
                         title="Beauty Space CR Location"
                     />
                 </div>
-                <div className="overflow-hidden h-full">
+                <div className="overflow-hidden h-full relative">
                     <img
                         src="/img/place.jpg"
                         className="w-full h-full object-cover rounded-md max-w-full max-h-full"
                         alt="Lugar de trabajo"
                     />
+                    <div className="absolute inset-0 bg-pink-400 bg-opacity-20 flex items-center justify-center">
+                        {/* Agrega contenido extra o descripción aquí si es necesario */}
+                    </div>
                 </div>
             </article>
         </section>
