@@ -3,8 +3,8 @@ import BookingForm from "@/components/BookingForm";
 import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
 import { useState } from "react";
-
 import ParticlesLayer from "@/components/Particles";
+import Place from "@/components/Place";
 
 function HomePage() {
 
@@ -16,6 +16,7 @@ function HomePage() {
       <div className="relative z-10">
         <Hero />
         <ServiceCard setServiceName={setServiceName} />
+        <Place />
         <BookingForm serviceName={serviceName} />
       </div>
     </>

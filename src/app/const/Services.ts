@@ -172,25 +172,22 @@ export const services: ServiceProps[] = [
                     }
                 ]
             },
+
             {
                 id: 3,
-                title: "Editorial",
-            },
-            {
-                id: 4,
                 title: "Bodas",
                 description: "Solicita nuestros paquetes de boda por PDF"
             },
             {
-                id: 5,
+                id: 4,
                 title: "Graduaciones",
             },
             {
-                id: 6,
+                id: 5,
                 title: "XV años",
             },
             {
-                id: 7,
+                id: 6,
                 title: "Glam",
             }
         ]

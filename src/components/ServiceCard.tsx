@@ -14,7 +14,7 @@ interface ServiceCardProps {
 export default function ServiceCard({ setServiceName }: ServiceCardProps) {
     const { ref, inView } = useInView({
         threshold: 0.1,
-        triggerOnce: false,
+        triggerOnce: true,
     });
     return (
         <section ref={ref} id="services" className="scroll-mt-28 m-8 md:m-16 space-y-8">
