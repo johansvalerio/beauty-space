@@ -107,13 +107,13 @@ export default function BookingForm(session: BookingFormProps) {
                                     <div>
                                         <Label htmlFor="name">Nombre</Label>
                                         <Input id="name" placeholder="María López ..." required disabled={!!session.session?.user.name}
-                                            value={name} onChange={(e) => setName(e.target.value)} />
+                                            value={name || ""} onChange={(e) => setName(e.target.value)} />
                                     </div>
                                     <div>
                                         <Label htmlFor="email">Email</Label>
                                         <Input id="email" type="email" placeholder="ejemplo@domain.com" required
                                             disabled={!!session.session?.user.name}
-                                            value={email} onChange={(e) => setEmail(e.target.value)} />
+                                            value={email || ""} onChange={(e) => setEmail(e.target.value)} />
                                     </div>
                                 </div>
                                 <div>
