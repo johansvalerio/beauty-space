@@ -1,5 +1,5 @@
 import { authOptions } from '@/utils/authOptions';
-import { getServerSession } from 'next-auth';
+import { getServerSession } from 'next-auth/next';
 import { Session } from 'next-auth';
 
 export default async function useSession() {
