@@ -12,7 +12,7 @@ export const authOptions: NextAuthOptions = {
                 email: { label: 'Email', type: 'text', placeholder: 'jsmith' },
                 password: { label: 'Password', type: 'password', placeholder: '*****' },
             },
-            async authorize(credentials): Promise<Session['user']> {
+            async authorize(credentials): Promise<Session["user"]> {
                 console.log(credentials);
 
                 const userFound = await db.user.findUnique({
@@ -38,7 +38,6 @@ export const authOptions: NextAuthOptions = {
                     name: userFound.user_name,
                     email: userFound.user_email,
                     role: userFound.role?.role_id,
-                    image: userFound.user_image,
                 };
             },
         }),
@@ -46,17 +45,15 @@ export const authOptions: NextAuthOptions = {
     callbacks: {
         session: async ({ session, token }: { session: Session, token: JWT }) => {
             if (session?.user) {
-                session.user.id = token.sub; // token.uid or token.sub both work
+                session.user.id = token.sub as string; // token.uid or token.sub both work
                 session.user.role = token.role;
-                session.user.image = token.image;
             }
             return session;
         },
-        jwt: async ({ user, token }: { user: Session['user'], token: JWT }) => {
+        jwt: async ({ token, user }: { token: JWT, user?: Session["user"] }) => {
             if (user) {
                 token.sub = user.id; // token.uid or token.sub both work
                 token.role = user.role;
-                token.image = user.image;
             }
             return token;
         },

@@ -13,8 +13,8 @@ import { useRouter } from "next/navigation";
 import { Session } from "next-auth";
 
 export default function DropDown({ session, userimage }: { session: Session, userimage: string }) {
-    const username = session.user.name;
-    const useremail = session.user.email;
+    const username = session.user.name as string;
+    const useremail = session.user.email as string;
 
 
     console.log(userimage);
@@ -35,7 +35,7 @@ export default function DropDown({ session, userimage }: { session: Session, use
                 <Avatar className="h-10 w-10 cursor-pointer border border-border hover:opacity-80 transition-opacity">
                     <AvatarImage src={userimage} alt={username} />
                     <AvatarFallback className="bg-primary text-primary-foreground">
-                        {username.substring(0, 2).toUpperCase()}
+                        {username?.substring(0, 2).toUpperCase()}
                     </AvatarFallback>
                 </Avatar>
             </DropdownMenuTrigger>
@@ -44,7 +44,7 @@ export default function DropDown({ session, userimage }: { session: Session, use
                     <Avatar className="h-8 w-8">
                         <AvatarImage src={userimage} alt={username} />
                         <AvatarFallback className="bg-primary text-primary-foreground text-xs">
-                            {username.substring(0, 2).toUpperCase()}
+                            {username?.substring(0, 2).toUpperCase()}
                         </AvatarFallback>
                     </Avatar>
                     <div>
