@@ -12,7 +12,7 @@ export const authOptions: NextAuthOptions = {
                 email: { label: 'Email', type: 'text', placeholder: 'jsmith' },
                 password: { label: 'Password', type: 'password', placeholder: '*****' },
             },
-            async authorize(credentials, req): Promise<Session['user']> {
+            async authorize(credentials): Promise<Session['user']> {
                 console.log(credentials);
 
                 const userFound = await db.user.findUnique({
