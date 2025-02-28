@@ -40,6 +40,7 @@ function ParticlesLayer() {
                 move: {
                     direction: "none",
                     enable: true,
+
                     outModes: { default: "bounce" },
                     speed: 6,
                 },

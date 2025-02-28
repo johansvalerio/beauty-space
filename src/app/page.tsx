@@ -1,23 +1,23 @@
-"use client";
+import useSession from "@/app/hooks/useSession";
 import BookingForm from "@/components/BookingForm";
 import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
-import { useState } from "react";
 import ParticlesLayer from "@/components/Particles";
 import Place from "@/components/Place";
 
-function HomePage() {
+async function HomePage() {
 
-  const [serviceName, setServiceName] = useState("");
+  const session = await useSession();
+
 
   return (
     <>
       <ParticlesLayer />
       <div className="relative z-10">
         <Hero />
-        <ServiceCard setServiceName={setServiceName} />
+        <ServiceCard />
         <Place />
-        <BookingForm serviceName={serviceName} />
+        <BookingForm session={session} />
       </div>
     </>
   );

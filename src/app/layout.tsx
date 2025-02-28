@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-rose-300 to-purple-300`}>
         <Header />
-        <main className="container mx-auto p-4 relative z-10">
+        <main className=" w-full mx-auto relative z-10">
           {children}
           <Analytics />
         </main>
