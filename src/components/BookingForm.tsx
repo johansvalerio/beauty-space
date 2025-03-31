@@ -72,14 +72,18 @@ export default function BookingForm(session: BookingFormProps) {
 
         if (res.ok) {
             const formatedDate = formatDate(date);
-            const phoneNumber = "+50688015998";
+            const phoneNumber = ["+50688015998", "+50663417731"];
 
             const message = service === "Quiropodia"
-                ? `🗓 *Reservación Confirmada*\n\n💅 *Servicio:* ${service}\n👤 *Nombre:* _${name}_\n📧 *Email:* _${email}_\n🕒 *Fecha:* ${formatedDate}\n\n¡Gracias por tu reserva! 💖✨`
-                : `🗓 *Reservación Confirmada*\n\n💅 *Servicio:* ${service}\n💆‍♀️ *Tipo de servicio:* ${speciality}\n👤 *Nombre:* _${name}_\n📧 *Email:* _${email}_\n🕒 *Fecha:* ${formatedDate}\n\n¡Gracias por tu reserva! 💖✨`;
+                ? `🗓 *Reservación Pendiente*\n\n💅 *Servicio:* ${service}\n👤 *Nombre:* _${name}_\n📧 *Email:* _${email}_\n🕒 *Fecha:* ${formatedDate}\n\n¡Gracias por tu reserva! 💖✨`
+                : `🗓 *Reservación Pendiente*\n\n💅 *Servicio:* ${service}\n💆‍♀️ *Tipo de servicio:* ${speciality}\n👤 *Nombre:* _${name}_\n📧 *Email:* _${email}_\n🕒 *Fecha:* ${formatedDate}\n\n¡Gracias por tu reserva! 💖✨`;
 
-            const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, "_blank");
+
+            phoneNumber.forEach((phoneNumber) => {
+                const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, "_blank");
+            })
+
         } else {
             setError("Hubo un error al reservar la cita.");
         }

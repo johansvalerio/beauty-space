@@ -7,6 +7,7 @@ import { useState } from 'react';
 
 function RegisterForm() {
     const router = useRouter();
+    //set error for server error and reactive password control
     const [error, setError] = useState<string | null>(null);
     const [selectImage, setSelectImage] = useState<string | null>(null);
 
@@ -37,6 +38,8 @@ function RegisterForm() {
             imageUrl = uploadResData.url;
             setSelectImage(imageUrl);
         }
+        //const patronContrasena = /^(?=.*[A-Z])(?=.*\d{1,6})(?=.*[!@#$%^&*()_+{}\[\]:;"'<>,.?/~`-]).{8,}$/
+        //if(patronContrasena.test(data.get('password'))) return setError('Contraseña inválida')
 
         // Registrar al usuario con la URL de la imagen
         const res = await fetch('/api/auth/register', {

@@ -19,8 +19,8 @@ export async function POST(request: Request) {
     console.log(data);
     const newUser: User = await db.user.create({
         data: {
-            user_name: data.user_name,
-            user_email: data.user_email,
+            user_name: data.user_name.toLowerCase(),
+            user_email: data.user_email.toLowerCase(),
             user_password: data.user_password,
             user_phone: data.user_phone,
             user_image: data.user_image,

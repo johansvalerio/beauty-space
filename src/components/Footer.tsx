@@ -3,9 +3,9 @@ import { Instagram, MessageCircle, MapPinIcon, Mail } from 'lucide-react';
 
 export default function Footer() {
     return (
-        <footer id="info" className="bg-white mt-auto z-10">
-            <div className="container mx-auto px-4 py-8">
-                <div className="grid md:grid-cols-3 gap-8 p-4">
+        <footer id="info" className="bg-white mt-auto z-10 ">
+            <div className="container mx-auto px-4 py-8 ">
+                <div className="grid md:grid-cols-3 lg:justify-items-center gap-8  p-4">
                     <div>
                         <h4 className="text-lg font-semibold mb-4 text-black">Contacto</h4>
                         <div className="flex flex-col gap-4">
@@ -34,6 +34,7 @@ export default function Footer() {
                 </div>
                 <Separator className="my-8" />
                 <p className="text-center text-gray-600">&copy; 2024 Beauty Space CR. Todos los derechos reservados.</p>
+                <p className="text-center text-gray-600">Created by Ing. Johans Valerio Brenes <a href="https://www.instagram.com/johansmvb/" target="_blank" className="text-rose-400 hover:text-rose-500 underline underline-offset-2">Instagram</a></p>
             </div>
         </footer>
     )

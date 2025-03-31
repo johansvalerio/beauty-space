@@ -5,8 +5,45 @@ import type { Citas } from '@/app/types/CitaUser'
 import { formatDate } from '@/app/hooks/formatDate'
 import { Session } from 'next-auth'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+//import { useState } from 'react'
+//import {useRouter} from 'next/navigation'
 
 function CitasCard({ citas, session }: { citas: Citas, session: Session }) {
+
+    // const [status, setStatus] = useState<string>("Pendiente");
+    // const [updStatus, setUpdStatus] = useState<boolean>(false);
+    // const router = useRouter();
+
+    // const handleEditButton = (order: Order) => {
+    //     setUpdStatus(true);
+    //     if (updStatus === true && id === order.order_id) {
+    //         setUpdStatus(false);
+    //     }
+    //     if (updStatus === true && id !== order.order_id) {
+    //         setUpdStatus(true);
+    //     }
+    // };
+
+    // const handlePatchStatus = async (order_id: number, status: string) => {
+    //     setStatus(status);
+    //     console.log(status);
+    //     console.log(order_id);
+    //     const res = await fetch(`/api/orders`, {
+    //         method: 'PATCH',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             order_id: order_id,
+    //             order_status: status
+    //         }),
+    //     });
+
+    //     const newStatus = await res.json();
+    //     console.log(newStatus);
+    //     router.refresh();
+    //     setUpdStatus(false);
+    // };
 
     const getStatusShadow = (status: string) => {
         switch (status) {
@@ -93,6 +130,15 @@ function CitasCard({ citas, session }: { citas: Citas, session: Session }) {
                                             </div>
 
                                         </div>
+                                        {/* <p className="flex items-center">Status:
+                                            <select className="mx-1 bg-zinc-800 p-1 rounded text-white" onChange={(e) => setStatus(e.target.value)} defaultValue={cita?.cita_status} name="status">
+                                                <option value="" disabled>--Estado de la orden--</option>
+                                                <option className=" text-yellow-500 font-medium" value="En proceso">En proceso</option>
+                                                <option className="text-green-500 font-medium" value="Entregado">Entregado</option>
+                                                <option className="text-red-500 font-medium" value="Cancelado">Cancelado</option>
+                                                <option className="text-blue-500 font-medium" value="Pendiente">Pendiente</option>
+                                            </select>
+                                        </p> */}
                                     </CardContent>
                                     {
                                         session.user.role === 1

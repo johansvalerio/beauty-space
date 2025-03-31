@@ -85,7 +85,7 @@ export const services: ServiceProps[] = [
             {
                 title: "Builder Gel",
                 description: "Gel constructor de alta densidad utilizado para esculpir y dar forma a uñas, proporcionando fuerza y durabilidad en aplicaciones extensas.",
-                price: "₡ 10.000",
+                price: "₡ 12.000",
                 img: "/img/manicura/builder.jpg"
             },
             {
@@ -121,7 +121,7 @@ export const services: ServiceProps[] = [
             {
                 title: "Esmaltado semipermanente",
                 description: "Acabado brillante y duradero por semanas, ideal para mantener las uñas impecables sin deteriorarse.",
-                price: "₡ 7.000",
+                price: "₡ 10.000",
                 img: "/img/manicura/semipermanente.jpg"
             }
         ]
@@ -347,7 +347,7 @@ export const services: ServiceProps[] = [
                 title: "Pedicure spa",
                 description: "Tratamiento relajante con exfoliación, hidratación y masaje, para dejar los pies suaves y revitalizados.",
                 img: "/img/pedicura/pedicura-spa.jpg",
-                price: "₡ 13.000"
+                price: "₡ 15.000"
             },
             {
                 title: "Pedicure clínico",
@@ -359,13 +359,13 @@ export const services: ServiceProps[] = [
                 title: "Pedicure ruso",
                 description: "Técnica para el cuidado preciso de las cutículas y uñas, logrando un acabado natural y duradero.",
                 img: "/img/pedicura/pedicura-rusa.jpg",
-                price: "₡ 6.000"
+                price: "₡ 5.000"
             },
             {
                 title: "Esmaltado semipermanente",
                 description: "Acabado brillante y duradero por semanas, ideal para mantener las uñas impecables y estéticas.",
                 img: "/img/pedicura/esmaltado.jpg",
-                price: "₡ 7.000"
+                price: "₡ 10.000"
             }
 
         ]
