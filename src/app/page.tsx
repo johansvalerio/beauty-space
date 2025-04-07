@@ -16,7 +16,7 @@ async function HomePage() {
       <div className="relative z-10">
         <Hero />
         <ServiceCard />
-        <Place />
+        {/* <Place /> */}
         <BookingForm session={session} />
       </div>
     </>
