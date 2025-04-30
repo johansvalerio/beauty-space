@@ -48,17 +48,17 @@ export const services: ServiceProps[] = [
                 description: "Cuidados especiales para prevenir complicaciones en los pies de personas con diabetes"
             },
             {
-                extra: "₡ 5.000",
+                extra: "₡ 10.000",
                 title: "Tratamiento preventivo de onicocriptosis",
                 description: "Cuidado especializado para prevenir y tratar uñas encarnadas, evitando infecciones y mejorando el confort"
             },
             {
-                extra: "₡ 5.000",
+                extra: "₡ 10.000",
                 title: "Tratamiento preventivo de onicomicosis",
                 description: "Fresado de uñas y tratamiento especializado para evitar la formación de hongos"
             },
             {
-                extra: "₡ 5.000",
+                extra: "₡ 10.000",
                 title: "Tratamiento preventivo de onicogrifosis",
                 description: "Fresado de uñas para prevenir el engrosamiento excesivo y deformación"
             },
@@ -85,7 +85,7 @@ export const services: ServiceProps[] = [
             {
                 title: "Builder Gel",
                 description: "Gel constructor de alta densidad utilizado para esculpir y dar forma a uñas, proporcionando fuerza y durabilidad en aplicaciones extensas.",
-                price: "₡ 12.000",
+                price: "₡ 13.000",
                 img: "/img/manicura/builder.jpg"
             },
             {
@@ -101,25 +101,25 @@ export const services: ServiceProps[] = [
                 img: "/img/manicura/acrilico.jpg"
             },
             {
-                title: "Híbridas",
-                description: "Técnica que combina diferentes sistemas como gel y acrílico, ofreciendo lo mejor de ambos para una mayor flexibilidad y resistencia.",
-                price: "₡ 15.000",
-                img: "/img/manicura/hibridas.jpg"
+                title: "Manicura Express",
+                description: "Técnica especializada que se enfoca en el cuidado detallado de las cutículas y la superficie de las uñas, logrando un acabado limpio, preciso y profesional.",
+                price: "₡ 6.000",
+                img: "/img/manicura/express2.webp"
             },
             {
-                title: "Dual System",
-                description: "Método rápido y eficiente para crear uñas esculpidas con moldes, combinando la fuerza del acrílico con la flexibilidad del gel.",
-                price: "₡ 14.000",
+                title: "Híbridas",
+                description: "Método de manicura que combina distintos sistemas de manicura, permitiendo una mayor eficiencia y control de los productos.",
+                price: "₡ 15.000",
                 img: "/img/manicura/dual.jpg"
             },
             {
                 title: "Rubber Base",
                 description: "Base flexible y resistente que protege las uñas naturales, brindando mayor adherencia y durabilidad al esmaltado.",
-                price: "₡ 12.000",
+                price: "₡ 13.000",
                 img: "/img/manicura/rubber.jpg"
             },
             {
-                title: "Esmaltado semipermanente",
+                title: "Esmaltado Semipermanente",
                 description: "Acabado brillante y duradero por semanas, ideal para mantener las uñas impecables sin deteriorarse.",
                 price: "₡ 10.000",
                 img: "/img/manicura/semipermanente.jpg"
@@ -330,7 +330,7 @@ export const services: ServiceProps[] = [
             },
             {
                 id: 4,
-                title: "Blower y planchado",
+                title: "Blower y Planchado",
                 description: "Secado y alisado profesional para un acabado liso y brillante, ideal para un look pulido y duradero.",
                 price: "₡ 7.000"
             }
@@ -344,25 +344,25 @@ export const services: ServiceProps[] = [
         img: "/img/pedicura.jpg",
         info: [
             {
-                title: "Pedicure spa",
+                title: "Pedicure Spa",
                 description: "Tratamiento relajante con exfoliación, hidratación y masaje, para dejar los pies suaves y revitalizados.",
                 img: "/img/pedicura/pedicura-spa.jpg",
                 price: "₡ 15.000"
             },
             {
-                title: "Pedicure clínico",
+                title: "Pedicure Clínico",
                 description: "Atención especializada para tratar callos y problemas de pies, enfocada en su salud.",
                 img: "/img/pedicura/pedicura-clinica.jpg",
-                price: "₡ 15.000"
+                price: "₡ 25.000"
             },
             {
-                title: "Pedicure ruso",
+                title: "Pedicure Express",
                 description: "Técnica para el cuidado preciso de las cutículas y uñas, logrando un acabado natural y duradero.",
                 img: "/img/pedicura/pedicura-rusa.jpg",
-                price: "₡ 5.000"
+                price: "₡ 6.000"
             },
             {
-                title: "Esmaltado semipermanente",
+                title: "Esmaltado Semipermanente",
                 description: "Acabado brillante y duradero por semanas, ideal para mantener las uñas impecables y estéticas.",
                 img: "/img/pedicura/esmaltado.jpg",
                 price: "₡ 10.000"
