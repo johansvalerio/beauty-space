@@ -12,7 +12,7 @@ import { useInView } from 'react-intersection-observer';
 export default function ServiceDetailsPage({ params }: Params) {
     const { ref, inView } = useInView({
         threshold: 0.1,
-        triggerOnce: false,
+        triggerOnce: true,
     });
     useEffect(() => {
         window.scrollTo(0, 0); // Desplaza el scroll a la parte superior
