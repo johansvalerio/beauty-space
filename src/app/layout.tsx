@@ -31,14 +31,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <Head>
         <title>xsbelstudio - [Breve descripción del proyecto]</title>
-        <meta name="description" content="xsbelstudio es un [estudio privado de belleza integralagl ]" />
+        <meta name="description" content="xsbelstudio es un [estudio privado de belleza integral]" />
         <meta name="keywords" content="xsbelstudio, [xsbel], [podia], [nails]" />
         <meta property="og:title" content="xsbelstudio" />
         <meta property="og:description" content="xsbelstudio es un [estudio privado de belleza integral]" />
-
+        <meta property="og:image" content="https://xsbelstudio.vercel.app/img/logo2.png" />
         <meta property="og:url" content="https://xsbelstudio.vercel.app" />
         <meta property="og:type" content="website" />
       </Head>
