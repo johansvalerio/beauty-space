@@ -31,16 +31,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="en" className="scroll-smooth">
       <Head>
-        <title>xsbelstudio - [Breve descripción del proyecto]</title>
-        <meta name="description" content="xsbelstudio es un [estudio privado de belleza integral]" />
-        <meta name="keywords" content="xsbelstudio, [xsbel], [podia], [nails]" />
         <meta property="og:title" content="xsbelstudio" />
         <meta property="og:description" content="xsbelstudio es un [estudio privado de belleza integral]" />
         <meta property="og:image" content="https://xsbelstudio.vercel.app/img/logo2.png" />
         <meta property="og:url" content="https://xsbelstudio.vercel.app" />
-        <meta property="og:type" content="website" />
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-rose-300 to-purple-300`}>
         <Header />
