@@ -22,6 +22,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "xsbelstudio - Isabel Navarro",
   description: "xsbelstudio es un [Estudio de belleza integral] en Cañas, Gte., Costa Rica. Ofrecemos servicios de belleza y cuidado integral de los pies.",
+  keywords: "xsbelstudio, xsbel, beauty space, nails, beauty, spa, manicura, pedicura, quiropodia, maquillaje, peluquería, estética, cuidado de pies, cuidado de manos, uñas acrílicas, uñas en gel",
 };
 
 export default function RootLayout({
@@ -37,7 +38,9 @@ export default function RootLayout({
         <meta name="keywords" content="xsbelstudio, [xsbel], [podia], [nails]" />
         <meta property="og:title" content="xsbelstudio" />
         <meta property="og:description" content="xsbelstudio es un [estudio privado de belleza integral]" />
-        <meta property="og:image" content="url de la imagen del proyecto" />
+
+        <meta property="og:url" content="https://xsbelstudio.vercel.app" />
+        <meta property="og:type" content="website" />
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-rose-300 to-purple-300`}>
         <Header />
