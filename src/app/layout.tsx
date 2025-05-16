@@ -36,7 +36,7 @@ export default function RootLayout({
         <meta name="description" content="xsbelstudio es un [estudio privado de belleza integralagl ]" />
         <meta name="keywords" content="xsbelstudio, [xsbel], [podia], [nails]" />
         <meta property="og:title" content="xsbelstudio" />
-        <meta property="og:description" content="xsbelstudio es un [estudio ´rivado de belleza integral]" />
+        <meta property="og:description" content="xsbelstudio es un [estudio privado de belleza integral]" />
         <meta property="og:image" content="url de la imagen del proyecto" />
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-rose-300 to-purple-300`}>
