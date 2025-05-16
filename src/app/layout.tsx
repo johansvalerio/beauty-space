@@ -6,7 +6,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react"
-import Head from 'next/head';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,9 +19,38 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "xsbelstudio - Isabel Navarro",
-  description: "xsbelstudio es un [Estudio de belleza integral] en Cañas, Gte., Costa Rica. Ofrecemos servicios de belleza y cuidado integral de los pies.",
-  keywords: "xsbelstudio, xsbel, beauty space, nails, beauty, spa, manicura, pedicura, quiropodia, maquillaje, peluquería, estética, cuidado de pies, cuidado de manos, uñas acrílicas, uñas en gel",
+  title: "Xsbel Studio by Isabel Navarro",
+  description: "xsbel studio es un estudio privado de belleza integral en Cañas, Guanacaste, Costa Rica. Servicios de belleza, quiropodia, manicura, pedicura, maquillaje y peluquería.",
+  keywords: [
+    "xsbel studio", "xsbel", "beauty space", "nails", "beauty", "spa", "manicura", "pedicura", "quiropodia", "maquillaje", "peluquería", "estética", "cuidado de pies", "cuidado de manos", "uñas acrílicas", "uñas en gel", "Cañas", "Guanacaste", "Costa Rica"
+  ],
+  openGraph: {
+    title: "Xsbel Studio by Isabel Navarro",
+    description: "Estudio privado de belleza integral en Cañas, Guanacaste, Costa Rica.",
+    url: "https://xsbelstudio.vercel.app",
+    images: [
+      {
+        url: "https://xsbelstudio.vercel.app/favicon.ico",
+        width: 800,
+        height: 600,
+        alt: "xsbel studio logo"
+      }
+    ],
+    siteName: "xsbel studio",
+    locale: "es_CR",
+    type: "website"
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  }
 };
 
 export default function RootLayout({
@@ -31,13 +59,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <Head>
-        <meta property="og:title" content="xsbelstudio" />
-        <meta property="og:description" content="xsbelstudio es un [estudio privado de belleza integral]" />
-        <meta property="og:image" content="https://xsbelstudio.vercel.app/img/logo2.png" />
-        <meta property="og:url" content="https://xsbelstudio.vercel.app" />
-      </Head>
+    <html lang="es">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BeautySalon",
+              "name": "Xsbel Studio by Isabel Navarro",
+              "image": "https://xsbelstudio.vercel.app/favicon.ico",
+              "description": "Xsbel Studio es un estudio privado de belleza integral en Cañas, Guanacaste, Costa Rica. Servicios de belleza, quiropodia, manicura, pedicura, maquillaje y peluquería.",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Cañas",
+                "addressLocality": "Guanacaste",
+                "addressCountry": "CR"
+              },
+              "url": "https://xsbelstudio.vercel.app",
+              "telephone": "+506 8801 5998"
+            }),
+          }}
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-rose-300 to-purple-300`}>
         <Header />
         <main className=" w-full mx-auto relative z-10">
