@@ -81,6 +81,7 @@ export default function RootLayout({
             }),
           }}
         />
+        <meta name="google-site-verification" content="fnm6RRn3UptyQuGpDk44miu8LEas1GZ2pMN6_Air8os" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-rose-300 to-purple-300`}>
         <Header />
