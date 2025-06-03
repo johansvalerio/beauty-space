@@ -9,9 +9,9 @@ export default async function Header() {
     if (!session) {
         return (
             <header className="bg-white/90 shadow-sm sticky top-0 z-50 px-4">
-                <nav className="container mx-auto py-3 md:py-4 flex justify-between items-center">
+                <nav className="container mx-auto  flex justify-between items-center">
                     <a href="/" className="flex gap-1 items-center">
-                        <img src="/img/logo3.PNG" alt="xsbel studio logo" className="max-w-md max-h-12 md:max-h-16" />
+                        <img src="/img/logo3.PNG" alt="xsbel studio logo" className="max-w-md max-h-12 md:max-h-20" />
                     </a>
                     <ul className="flex space-x-2 md:space-x-4 items-center md:text-base text-sm">
                         <li><a href="/#hero" className="text-gray-600 hover:text-pink-600">Home</a></li>
@@ -43,9 +43,9 @@ export default async function Header() {
 
     return (
         <header className="bg-white/90 shadow-sm sticky top-0 z-50 px-4">
-            <nav className="container mx-auto py-3 md:py-4 flex justify-between items-center">
+            <nav className="container mx-auto  flex justify-between items-center">
                 <a href="/" className="flex gap-1 items-center">
-                    <img src="/img/logo3.PNG" alt="xsbel studio logo" className="max-w-md max-h-20" />
+                    <img src="/img/logo3.PNG" alt="xsbel studio logo" className="max-w-md max-h-12 md:max-h-20" />
                 </a>
                 <ul className="flex space-x-2 md:space-x-4 items-center ">
                     <li><a href="/#hero" className="text-gray-600 hover:text-pink-600">Home</a></li>
