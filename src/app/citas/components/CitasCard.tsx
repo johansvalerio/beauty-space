@@ -3,13 +3,49 @@ import { useState, useEffect } from "react";
 import { Card, CardTitle, CardHeader, CardContent, CardDescription, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import type { Citas } from '@/app/types/CitaUser'
+import { Cita } from '@prisma/client';
 import { formatDate } from '@/app/hooks/formatDate'
 import { Session } from 'next-auth'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { useRouter } from "next/navigation";
 
 function CitasCard({ citas, session }: { citas: Citas, session: Session }) {
     // Estado local para las citas
     const [citasState, setCitasState] = useState(citas);
+    const [status, setStatus] = useState('');
+    const [updStatus, setUpdStatus] = useState(false);
+    const [id, setId] = useState(0);
+    const router = useRouter();
+
+    const handleEditButton = (citas: Cita) => {
+        setUpdStatus(true);
+        if (updStatus === true && id === citas.cita_id) {
+            setUpdStatus(false);
+        }
+        if (updStatus === true && id !== citas.cita_id) {
+            setUpdStatus(true);
+        }
+    };
+
+    const handlePatchStatus = async (cita_id: number, status: string) => {
+        setStatus(status);
+        console.log(status);
+        console.log(cita_id);
+        const res = await fetch(`/api/citas`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                cita_id: cita_id,
+                cita_status: status
+            }),
+        });
+        const newStatus = await res.json();
+        console.log(newStatus);
+        router.refresh();
+        setUpdStatus(false);
+    }
 
     // Efecto para actualizar el estado local si las props cambian (por ejemplo, desde el servidor)
     useEffect(() => {
@@ -24,7 +60,6 @@ function CitasCard({ citas, session }: { citas: Citas, session: Session }) {
 
         return () => clearInterval(interval);
     }, []);
-
 
     const getStatusShadow = (status: string) => {
         switch (status) {
@@ -55,6 +90,7 @@ function CitasCard({ citas, session }: { citas: Citas, session: Session }) {
                 return "bg-gray-500/20";
         }
     };
+
 
     if (citasState.length === 0) {
         return (
@@ -99,20 +135,56 @@ function CitasCard({ citas, session }: { citas: Citas, session: Session }) {
                                             <p className="text-md text-muted-foreground">Fecha: {formatDate(cita?.cita_fecha?.toString())}</p>
                                             <p className="text-md text-muted-foreground">Servicio: {cita?.cita_servicio}</p>
                                             <p className="text-md text-muted-foreground">Tipo de servicio: {cita?.cita_tiposervicio}</p>
-                                            <p className='text-md text-muted-foreground'>Estado: {cita?.cita_status} </p>
+                                            {
+                                                updStatus === false || id !== cita.cita_id ?
+                                                    <p className={` font-bold
+                                    ${cita.cita_status === "En proceso" && "text-blue-500" ||
+                                                        cita.cita_status === "Finalizado" && "text-green-500" ||
+                                                        cita.cita_status === "Declinado" && "text-red-500" ||
+                                                        cita.cita_status === "Pendiente" && "text-amber-500"
+                                                        }`}>
+                                                        Status: {cita.cita_status}
+                                                    </p>
+                                                    :
+                                                    <p className="flex items-center">Status:
+                                                        <select className="mx-1 bg-zinc-800 p-1 rounded text-white" onChange={(e) => setStatus(e.target.value)} defaultValue={cita.cita_status} name="status">
+                                                            <option value="" disabled>--Estado de la orden--</option>
+                                                            <option className=" text-blue-500 font-medium" value="En proceso">En proceso</option>
+                                                            <option className="text-green-500 font-medium" value="Finalizado">Finalizado</option>
+                                                            <option className="text-red-500 font-medium" value="Declinado">Declinado</option>
+                                                            <option className="text-amber-500 font-medium" value="Pendiente">Pendiente</option>
+                                                        </select>
+                                                    </p>
+                                            }
                                         </div>
                                     </div>
                                 </CardContent>
                                 {
                                     session.user.role === 1
                                     && <CardFooter className="relative">
-                                        <Button>Modificar</Button>
+                                        <div className="flex gap-2 ">
+                                            <Button className={` text-white font-semibold border-white p-2  rounded ${updStatus === true && id === cita.cita_id ? "bg-red-600 hover:bg-red-500" : "bg-black "}`}
+                                                onClick={() => {
+                                                    handleEditButton(cita),
+                                                        setId(cita.cita_id)
+                                                }}
+                                            >
+                                                {updStatus === true && id === cita.cita_id ? "Cancelar" : "Actualizar cita"}
+                                            </Button>
+                                            {updStatus === true && id === cita.cita_id
+                                                &&
+                                                <Button className="bg-green-600 hover:bg-green-500 text-white font-bold p-1  rounded"
+                                                    onClick={
+                                                        () => handlePatchStatus(cita.cita_id, status)
+                                                    }>Guardar
+                                                </Button>}
+                                        </div>
                                     </CardFooter>
                                 }
                             </Card>
                         )
                     }
-                })}
+                }).reverse()}
             </div>
         </div>
     )

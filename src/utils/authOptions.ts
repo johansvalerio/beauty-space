@@ -24,9 +24,11 @@ export const authOptions: NextAuthOptions = {
                     },
                 });
 
+                console.log(userFound);
+                // Check if user exists and password matches
                 if (!userFound) throw new Error('No user found or invalid password');
 
-                console.log(userFound);
+
 
                 //const matchPassword = await bcrypt.compare(credentials?.password, userFound.user_password)
                 const matchPassword = credentials?.password === userFound.user_password;

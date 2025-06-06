@@ -71,7 +71,7 @@ export const services: ServiceProps[] = [
         ]
     },
     {
-        id: 4,
+        id: 2,
         title: "Manicura",
         description: "Dale color a tus uñas con manicurista certificada.",
         img: "/img/manicura.jpg",

@@ -43,3 +43,20 @@ export async function GET() {
     })
     return NextResponse.json(citas);
 }
+
+export async function PATCH(request: Request) {
+
+    const data = await request.json()
+
+    const newCitaStatus = await db.cita.update({
+        where: {
+            cita_id: Number(data.cita_id)
+        },
+        data: {
+            cita_status: data.cita_status
+        }
+    })
+
+    return NextResponse.json(newCitaStatus)
+
+}
