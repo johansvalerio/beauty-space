@@ -1,4 +1,5 @@
 'use client';
+import GoogleIcon from '@/app/svg/GoogleIcon';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { signIn } from 'next-auth/react';
@@ -17,6 +18,7 @@ function LoginForm() {
             redirect: false,
             email: data.get('email'),
             password: data.get('password'),
+            callbackUrl: '/',
         });
         console.log(res);
         if (res?.error) {
@@ -31,13 +33,13 @@ function LoginForm() {
     }
 
     return (
-        <div className="md:px-6 lg:px-8">
+        <div className='w-full max-w-md'>
             <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-4xl bg-gradient-to-r from-rose-400 to-purple-400 p-4 rounded-lg rounded-br-none rounded-bl-none">Iniciar Sesión</h2>
-            <div className="grid place-items-center md:grid-cols-1 lg:gap-12">
+            <div className="grid place-items-center md:grid-cols-1 lg:gap-12 ">
 
-                <div className="rounded-lg  rounded-tr-none rounded-tl-none bg-white p-6 shadow-md md:p-8 lg:p-10">
+                <div className="rounded-lg  rounded-tr-none rounded-tl-none bg-white p-6 shadow-md w-full max-w-md">
                     <form onSubmit={handleSubmit}>
-                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-1">
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium text-foreground">
                                     Email
@@ -70,12 +72,22 @@ function LoginForm() {
                                 </div>
                             }
                         </div>
-                        <div className="mt-6">
+                        <div className="mt-6 flex flex-col items-center justify-center gap-4 md:flex-col">
                             <Button
                                 type="submit"
-                                className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-rose-400 to-purple-400 px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-gradient-to-r hover:from-rose-300 hover:to-purple-300 md:px-12 md:text-base"
+                                className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-rose-400 to-purple-400 px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-gradient-to-r hover:from-rose-300 hover:to-purple-300 md:px-12 md:text-sm p-2 w-full"
                             >
                                 Iniciar Sesión
+                            </Button>
+                            <Button
+                                type="button"
+                                onClick={() => signIn('google',
+                                    { callbackUrl: '/' }
+                                )}
+                                className="bg-white p-2 rounded-md text-black border-gray-600 border hover:bg-gray-100 transition-colors flex items-center justify-center gap-2 w-full text-sm"
+                            >
+                                <GoogleIcon className="w-5 h-5" />
+                                Iniciar Sesión con Google
                             </Button>
                         </div>
                     </form>

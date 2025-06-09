@@ -1,7 +1,9 @@
 import { NextAuthOptions, Session } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import GoogleProvider from "next-auth/providers/google";
 import db from '@/lib/db';
 import { JWT } from 'next-auth/jwt';
+
 
 export const authOptions: NextAuthOptions = {
 
@@ -43,8 +45,33 @@ export const authOptions: NextAuthOptions = {
                 };
             },
         }),
+        GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID as string,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+        }),
     ],
     callbacks: {
+        signIn: async ({ user, account, profile }) => {
+            // Si es Google, crea el usuario si no existe
+            if (account?.provider === "google") {
+                const userFound = await db.user.findUnique({
+                    where: { user_email: user.email! },
+                });
+                if (!userFound) {
+                    await db.user.create({
+                        data: {
+                            user_name: user.name!,
+                            user_email: user.email!,
+                            user_image: user.image,
+                            //no agregar password ni teléfono para google
+                        },
+
+                    });
+                }
+                // Si el usuario ya existe, no hacer nada
+            }
+            return true;
+        },
         session: async ({ session, token }: { session: Session, token: JWT }) => {
             if (session?.user) {
                 session.user.id = token.sub as string; // token.uid or token.sub both work

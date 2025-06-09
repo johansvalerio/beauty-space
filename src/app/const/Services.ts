@@ -369,5 +369,52 @@ export const services: ServiceProps[] = [
             }
 
         ]
+    },
+    {
+        id: 6,
+        title: "Cejas",
+        description: "Define y armoniza tu rostro con técnicas profesionales de diseño y cuidado de cejas.",
+        img: "/img/ceja.jpg",
+        info: [
+
+            {
+                title: "Depilación con cera o pinzas",
+                description: "Técnica de depilación que utiliza cera o pinzas para eliminar el vello, ideal para pieles sensibles y zonas pequeñas.",
+                price: "₡ 4.000"
+            },
+            {
+                title: "Laminado de cejas",
+                description: "Técnica que alisa y fija las cejas en una forma deseada, logrando un acabado natural y duradero.",
+                price: "₡ 7.000"
+            },
+            {
+                title: "Aplicación de henna",
+                description: "Técnica que utiliza henna para dar color y forma a las cejas, logrando un acabado natural y duradero.",
+                price: "₡ 5.000"
+            }
+        ]
+    },
+    {
+        id: 7,
+        title: "Pestanas",
+        description: "Realza tu mirada con lashista certificada.",
+        img: "/img/pestana.jpg",
+        info: [
+            {
+                title: "Lifting de pestañas",
+                description: "Técnica que eleva y curva las pestañas naturales, logrando un efecto de mayor longitud y volumen sin necesidad de extensiones.",
+                price: "₡ 10.000"
+            },
+            {
+                title: "Técnica clásica",
+                description: "Extensiones de pestañas aplicadas una a una, para un look natural y elegante.",
+                price: "₡ 11.000"
+            },
+            {
+                title: "Técnica volumen",
+                description: "Extensiones de pestañas aplicadas en grupos, para un look más dramático y voluminoso.",
+                price: "₡ 11.000"
+            }
+        ]
     }
 ]

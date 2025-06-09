@@ -42,7 +42,9 @@ export default function ServiceCard() {
                         >
                             <Card key={service.id} className="w-full flex flex-col h-full">
                                 <CardHeader>
-                                    <CardTitle>{service.title}</CardTitle>
+                                    <CardTitle>{
+                                        service.title === "Pestanas" ? "Pestañas" : service.title
+                                    }</CardTitle>
                                     <CardDescription>{service.description}</CardDescription>
                                 </CardHeader>
                                 <CardContent>

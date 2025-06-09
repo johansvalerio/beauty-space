@@ -171,7 +171,10 @@ export default function ServiceDetailsPage({ params }: Params) {
                         transition={{ duration: 0.7, delay: 0, ease: "linear" }}
                         className="text-4xl font-bold text-white mb-4 uppercase"
                     >
-                        Servicios de {serviceData.title}
+                        {
+                            serviceData.title.toLocaleLowerCase() === "pestanas" ? "Servicio de Pestañas" : "Servicio de " + serviceData.title
+                        }
+
                     </motion.h1>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
