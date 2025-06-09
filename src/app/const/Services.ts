@@ -374,7 +374,7 @@ export const services: ServiceProps[] = [
         id: 6,
         title: "Cejas",
         description: "Define y armoniza tu rostro con técnicas profesionales de diseño y cuidado de cejas.",
-        img: "/img/ceja.jpg",
+        img: "/img/ceja.JPG",
         info: [
 
             {
@@ -398,7 +398,7 @@ export const services: ServiceProps[] = [
         id: 7,
         title: "Pestanas",
         description: "Realza tu mirada con lashista certificada.",
-        img: "/img/pestana.jpg",
+        img: "/img/pestana.JPG",
         info: [
             {
                 title: "Lifting de pestañas",
