@@ -2,6 +2,7 @@
 import GoogleIcon from '@/app/svg/GoogleIcon';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Separator } from '@/components/ui/separator';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -79,6 +80,7 @@ function LoginForm() {
                             >
                                 Iniciar Sesión
                             </Button>
+                            <Separator className="bg-gray-400" />
                             <Button
                                 type="button"
                                 onClick={() => signIn('google',
@@ -93,7 +95,7 @@ function LoginForm() {
                     </form>
                     <div className=' mt-6 flex gap-1 justify-end items-center'>
                         <p className='text-muted-foreground'>¿No tienes cuenta?</p>
-                        <Link href='/auth/register' className="underline text-rose-400 decoration-rose-400">Regístrate</Link>
+                        <Link href='/auth/register' className="underline text-rose-400 hover:text-rose-500 decoration-rose-400">Regístrate</Link>
                     </div>
 
                 </div>

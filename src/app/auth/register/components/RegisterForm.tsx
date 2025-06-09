@@ -10,6 +10,7 @@ function RegisterForm() {
     //set error for server error and reactive password control
     const [error, setError] = useState<string | null>(null);
     const [selectImage, setSelectImage] = useState<string | null>(null);
+    const [password, setPassword] = useState<string>('');
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -40,6 +41,16 @@ function RegisterForm() {
         }
         //const patronContrasena = /^(?=.*[A-Z])(?=.*\d{1,6})(?=.*[!@#$%^&*()_+{}\[\]:;"'<>,.?/~`-]).{8,}$/
         //if(patronContrasena.test(data.get('password'))) return setError('Contraseña inválida')
+
+        // Validar que la contraseña tenga al menos 8 caracteres, una mayúscula, un número y un carácter especial
+        if (password.length < 8) {
+            setError('La contraseña debe tener al menos 8 caracteres');
+            return;
+        }
+        if (password.length > 20) {
+            setError('La contraseña no puede tener más de 20 caracteres');
+            return;
+        }
 
         // Registrar al usuario con la URL de la imagen
         const res = await fetch('/api/auth/register', {
@@ -129,22 +140,26 @@ function RegisterForm() {
                                     Contraseña
                                 </label>
                                 <Input
+                                    onChange={(e) => setPassword(e.target.value)}
                                     required
                                     type="password"
+                                    maxLength={20}
+                                    minLength={8}
                                     id="password"
                                     name="password"
                                     placeholder="*****"
                                     className="focus:ring-none mt-1 block w-full rounded-md bg-background px-3 py-2 text-foreground shadow-sm border-gray-400"
                                 />
+
                             </div>
+
                             <div>
                                 <label htmlFor="image" className="block text-sm font-medium text-foreground">
                                     Imagen
                                 </label>
                                 <div className="relative mt-1 block w-full rounded-md bg-gradient-to-r from-rose-400 to-purple-400 p-[2px]">
-                                    <div className="flex items-center justify-center rounded-md bg-white">
+                                    <div className="flex items-center justify-center rounded">
                                         <Input
-                                            required
                                             type="file"
                                             id="image"
                                             name="image"
@@ -178,7 +193,7 @@ function RegisterForm() {
                     </form>
                     <div className="mt-6 flex gap-1 justify-start items-center">
                         <p className="text-muted-foreground">¿Ya tienes cuenta?</p>
-                        <Link href="/auth/signin" className="underline text-rose-400 decoration-rose-400">
+                        <Link href="/auth/signin" className="underline text-rose-400 hover:text-rose-500 decoration-rose-400">
                             Inicia sesión
                         </Link>
                     </div>

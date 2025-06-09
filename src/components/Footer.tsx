@@ -33,8 +33,8 @@ export default function Footer() {
                     </div>
                 </div>
                 <Separator className="my-8" />
-                <p className="text-center text-gray-600">&copy; 2024 Beauty Space CR. Todos los derechos reservados.</p>
-                <p className="text-center text-gray-600">Created by Ing. Johans Valerio Brenes <a href="https://www.instagram.com/johansmvb/" target="_blank" className="text-rose-400 hover:text-rose-500 underline underline-offset-2">Instagram</a></p>
+                <p className="text-center text-gray-600">&copy; 2024 Xsbel Studio. Todos los derechos reservados.</p>
+                <p className="text-center text-gray-600">Created by Ing. Johans Valerio <a href="https://www.instagram.com/johansmvb/" target="_blank" className="text-gray-400 hover:text-gray-500 underline underline-offset-2">Instagram</a></p>
             </div>
         </footer>
     )

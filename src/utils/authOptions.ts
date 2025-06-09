@@ -52,17 +52,19 @@ export const authOptions: NextAuthOptions = {
     ],
     callbacks: {
         signIn: async ({ user, account, profile }) => {
-            // Si es Google, crea el usuario si no existe
+            // Si el provider es Google, crea el usuario si no existe
             if (account?.provider === "google") {
                 const userFound = await db.user.findUnique({
                     where: { user_email: user.email! },
                 });
+                console.log("userFound", userFound);
                 if (!userFound) {
                     await db.user.create({
                         data: {
                             user_name: user.name!,
                             user_email: user.email!,
                             user_image: user.image,
+                            user_provider: account.provider, //google como proveedor, puede cambiar si es facebook, github, etc
                             //no agregar password ni teléfono para google
                         },
 

@@ -17,6 +17,15 @@ export async function POST(request: Request) {
 
 
     console.log(data);
+
+    // Validate required fields
+    if (!data.user_password || data.user_password.length < 8) {
+        return NextResponse.json({ error: "La contraseña debe tener al menos 8 caracteres" }, { status: 400 });
+    }
+    if (data.user_password.length > 20) {
+        return NextResponse.json({ error: "La contraseña no puede tener más de 20 caracteres" }, { status: 400 });
+    }
+
     const newUser: User = await db.user.create({
         data: {
             user_name: data.user_name.toLowerCase(),
