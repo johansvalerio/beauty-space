@@ -6,9 +6,7 @@ import ParticlesLayer from "@/components/Particles";
 //import Place from "@/components/Place";
 
 async function HomePage() {
-
   const session = await useSession();
-
 
   return (
     <>
