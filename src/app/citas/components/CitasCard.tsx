@@ -3,9 +3,9 @@ import { useState } from "react";
 //import { useEffect } from "react";
 import { Card, CardTitle, CardHeader, CardContent, CardDescription, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import type { Citas } from '@/app/types/CitaUser'
+import type { Citas } from '@/types/CitaUser'
 import { Cita } from '@prisma/client';
-import { formatDate } from '@/app/hooks/formatDate'
+import { formatDate } from '@/hooks/formatDate'
 import { Session } from 'next-auth'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { useRouter } from "next/navigation";

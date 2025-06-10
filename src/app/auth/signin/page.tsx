@@ -1,5 +1,5 @@
 import LoginForm from './components/LoginForm';
-import useSession from '@/app/hooks/useSession';
+import useSession from '@/hooks/useSession';
 import Particles from '@/components/Particles';
 
 export default async function Signin() {

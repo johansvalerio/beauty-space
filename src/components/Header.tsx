@@ -1,5 +1,5 @@
 
-import useSession from "@/app/hooks/useSession";
+import useSession from "@/hooks/useSession";
 import DropDown from "@/components/DropDown";
 import Link from "next/link";
 

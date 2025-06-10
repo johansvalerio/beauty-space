@@ -1,8 +1,8 @@
 import Particles from "@/components/Particles"
 import CitasCard from "@/app/citas/components/CitasCard"
 import { GET } from "@/app/api/citas/route"
-import { Citas } from "@/app/types/CitaUser"
-import useSession from "@/app/hooks/useSession"
+import { Citas } from "@/types/CitaUser"
+import useSession from "@/hooks/useSession"
 import Link from "next/link"
 
 async function getCitas() {

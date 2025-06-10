@@ -1,4 +1,4 @@
-import { type ServiceProps } from "@/app/types/Services";
+import { type ServiceProps } from "@/types/Services";
 export const services: ServiceProps[] = [
     {
         id: 1,

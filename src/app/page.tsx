@@ -1,4 +1,4 @@
-import useSession from "@/app/hooks/useSession";
+import useSession from "@/hooks/useSession";
 import BookingForm from "@/components/BookingForm";
 import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";

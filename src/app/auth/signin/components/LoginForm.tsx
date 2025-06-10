@@ -1,5 +1,5 @@
 'use client';
-import GoogleIcon from '@/app/svg/GoogleIcon';
+import GoogleIcon from '@/svg/GoogleIcon';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
@@ -54,6 +54,13 @@ function LoginForm() {
                                     className="focus:ring-none mt-1 block w-full rounded-md  bg-background px-3 py-2 text-foreground shadow-sm border-gray-400"
                                 />
                             </div>
+                            {isLoading && <div className="skeleton-loader">Cargando...</div>}
+                            <img
+                                src={service.img}
+                                alt={service.title}
+                                onLoad={handleImageLoad}
+                                className={`w-full h-60 object-cover rounded-md mb-4 ${isLoading ? 'hidden' : 'block'}`}
+                            />
                             <div>
                                 <label htmlFor="password" className="block text-sm font-medium text-foreground">
                                     Contraseña

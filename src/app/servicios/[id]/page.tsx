@@ -1,6 +1,6 @@
 "use client"
-import { type Params } from "@/app/types/Params"
-import { services } from "@/app/const/Services"
+import { type Params } from "@/types/Params"
+import { services } from "@/const/Services"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import ParticlesLayer from "@/components/Particles"
 import { useEffect } from 'react';
