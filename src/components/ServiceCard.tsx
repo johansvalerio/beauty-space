@@ -44,7 +44,7 @@ export default function ServiceCard() {
             transition={{ duration: 0.7, ease: "linear", delay: index * 0.3 }}
             className="w-full"
           >
-            <Card className="w-full flex flex-col h-full">
+            <Card className="w-full flex flex-col h-[355px] overflow-hidden hover:h-full transition-all duration-300 cursor-pointer">
               <CardHeader>
                 <CardTitle>
                   {service.title === "Pestanas" ? "Pestañas" : service.title}
@@ -52,7 +52,7 @@ export default function ServiceCard() {
                 <CardDescription>{service.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="relative h-60 bg-gray-100 rounded-md overflow-hidden">
+                <div className="relative h-[250px] bg-gray-100 rounded-md overflow-hidden">
                   <img
                     src={service.img}
                     alt={service.title}

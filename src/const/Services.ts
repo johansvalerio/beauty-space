@@ -373,9 +373,9 @@ export const services: ServiceProps[] = [
     {
         id: 6,
         title: "Cejas",
-        description: "Define y armoniza tu rostro con técnicas profesionales de diseño y cuidado de cejas.",
+        description: "Armoniza tu rostro con técnicas profesionales de cejas.",
         img: "/img/ceja.JPG",
-        info: [
+        info: [ 
 
             {
                 title: "Depilación con cera o pinzas",
