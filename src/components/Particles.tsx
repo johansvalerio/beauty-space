@@ -6,7 +6,7 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { Container, ISourceOptions } from "@tsparticles/engine";
 
-export default function ParticlesLayer() {
+function ParticlesLayer() {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -71,16 +71,18 @@ export default function ParticlesLayer() {
     []
   );
 
-  if (init) {
-    return (
-      <Particles
-        className="absolute inset-0 -z-10"
-        id="tsparticles"
-        particlesLoaded={particlesLoaded}
-        options={options}
-      />
-    );
-  }
-
-  return null;
+  return (
+    <>
+      {init && (
+        <Particles
+          className="absolute inset-0 -z-20"
+          id="tsparticles"
+          particlesLoaded={particlesLoaded}
+          options={options}
+        />
+      )}
+    </>
+  );
 }
+
+export default ParticlesLayer;

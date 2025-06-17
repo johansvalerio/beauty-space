@@ -7,9 +7,13 @@ import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import EyeIcon from "@/svg/EyeIcon";
+import EyeOffIcon from "@/svg/EyeOffIcon";
 function LoginForm() {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
+  const [showPassword, setShowPassword] = useState(false);
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -65,14 +69,27 @@ function LoginForm() {
                 >
                   Contraseña
                 </label>
-                <Input
-                  required
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="*****"
-                  className="focus:ring-none mt-1 block w-full rounded-md  bg-background px-3 py-2 text-foreground shadow-sm border-gray-400"
-                />
+                <div className="relative">
+                  <Input
+                    required
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    name="password"
+                    placeholder="*****"
+                    className="focus:ring-none mt-1 block w-full rounded-md  bg-background px-3 py-2 text-foreground shadow-sm border-gray-400"
+                  />
+                  {showPassword ? (
+                    <EyeOffIcon
+                      onClick={() => setShowPassword(false)}
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                    />
+                  ) : (
+                    <EyeIcon
+                      onClick={() => setShowPassword(true)}
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                    />
+                  )}
+                </div>
               </div>
               {error && (
                 <div className="col-span-2">
