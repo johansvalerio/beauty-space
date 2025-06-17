@@ -44,19 +44,21 @@ export default function ServiceCard() {
             transition={{ duration: 0.7, ease: "linear", delay: index * 0.3 }}
             className="w-full"
           >
-            <Card className="w-full flex flex-col h-[355px] overflow-hidden hover:h-full transition-all duration-300 cursor-pointer">
+            <Card className="group w-full h-[360px] hover:h-full overflow-hidden flex flex-col transition-all duration-300 cursor-pointer">
               <CardHeader>
                 <CardTitle>
                   {service.title === "Pestanas" ? "Pestañas" : service.title}
                 </CardTitle>
-                <CardDescription>{service.description}</CardDescription>
+                <CardDescription className="line-clamp-1 group-hover:line-clamp-none">
+                  {service.description}
+                </CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="relative h-[250px] bg-gray-100 rounded-md overflow-hidden">
+              <CardContent className="flex-1">
+                <div className="relative w-full bg-gray-100 rounded-md">
                   <img
                     src={service.img}
                     alt={service.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-[250px] object-cover"
                   />
                   {(service.title === "Pestanas" ||
                     service.title === "Cejas") && (

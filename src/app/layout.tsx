@@ -1,11 +1,11 @@
 // app/layout.tsx
-
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import Particles from "@/components/Particles";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,25 +20,45 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Xsbel Studio by Isabel Navarro",
-  description: "xsbel studio es un estudio privado de belleza integral en Cañas, Guanacaste, Costa Rica. Servicios de belleza, quiropodia, manicura, pedicura, maquillaje y peluquería.",
+  description:
+    "xsbel studio es un estudio privado de belleza integral en Cañas, Guanacaste, Costa Rica. Servicios de belleza, quiropodia, manicura, pedicura, maquillaje y peluquería.",
   keywords: [
-    "xsbel studio", "xsbel", "beauty space", "nails", "beauty", "spa", "manicura", "pedicura", "quiropodia", "maquillaje", "peluquería", "estética", "cuidado de pies", "cuidado de manos", "uñas acrílicas", "uñas en gel", "Cañas", "Guanacaste", "Costa Rica"
+    "xsbel studio",
+    "xsbel",
+    "beauty space",
+    "nails",
+    "beauty",
+    "spa",
+    "manicura",
+    "pedicura",
+    "quiropodia",
+    "maquillaje",
+    "peluquería",
+    "estética",
+    "cuidado de pies",
+    "cuidado de manos",
+    "uñas acrílicas",
+    "uñas en gel",
+    "Cañas",
+    "Guanacaste",
+    "Costa Rica",
   ],
   openGraph: {
     title: "Xsbel Studio by Isabel Navarro",
-    description: "Estudio privado de belleza integral en Cañas, Guanacaste, Costa Rica.",
+    description:
+      "Estudio privado de belleza integral en Cañas, Guanacaste, Costa Rica.",
     url: "https://xsbelstudio.vercel.app",
     images: [
       {
         url: "https://xsbelstudio.vercel.app/favicon.ico",
         width: 800,
         height: 600,
-        alt: "xsbel studio logo"
-      }
+        alt: "xsbel studio logo",
+      },
     ],
     siteName: "xsbel studio",
     locale: "es_CR",
-    type: "website"
+    type: "website",
   },
   robots: {
     index: true,
@@ -50,7 +70,7 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  }
+  },
 };
 
 export default function RootLayout({
@@ -67,25 +87,32 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "BeautySalon",
-              "name": "Xsbel Studio by Isabel Navarro",
-              "image": "https://xsbelstudio.vercel.app/favicon.ico",
-              "description": "Xsbel Studio es un estudio privado de belleza integral en Cañas, Guanacaste, Costa Rica. Servicios de belleza, quiropodia, manicura, pedicura, maquillaje y peluquería.",
-              "address": {
+              name: "Xsbel Studio by Isabel Navarro",
+              image: "https://xsbelstudio.vercel.app/favicon.ico",
+              description:
+                "Xsbel Studio es un estudio privado de belleza integral en Cañas, Guanacaste, Costa Rica. Servicios de belleza, quiropodia, manicura, pedicura, maquillaje y peluquería.",
+              address: {
                 "@type": "PostalAddress",
-                "streetAddress": "Cañas",
-                "addressLocality": "Guanacaste",
-                "addressCountry": "CR"
+                streetAddress: "Cañas",
+                addressLocality: "Guanacaste",
+                addressCountry: "CR",
               },
-              "url": "https://xsbelstudio.vercel.app",
-              "telephone": "+506 8801 5998"
+              url: "https://xsbelstudio.vercel.app",
+              telephone: "+506 8801 5998",
             }),
           }}
         />
-        <meta name="google-site-verification" content="fnm6RRn3UptyQuGpDk44miu8LEas1GZ2pMN6_Air8os" />
+        <meta
+          name="google-site-verification"
+          content="fnm6RRn3UptyQuGpDk44miu8LEas1GZ2pMN6_Air8os"
+        />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-rose-300 to-purple-300`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-rose-300 to-purple-300`}
+      >
         <Header />
         <main className=" w-full mx-auto relative z-10">
+          <Particles />
           {children}
           <Analytics />
         </main>

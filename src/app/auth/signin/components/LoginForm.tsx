@@ -34,7 +34,7 @@ function LoginForm() {
   }
 
   return (
-    <div className="w-full max-w-md">
+    <div className="w-full max-w-md p-4">
       <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-4xl bg-gradient-to-r from-rose-400 to-purple-400 p-4 rounded-lg rounded-br-none rounded-bl-none">
         Iniciar Sesión
       </h2>
@@ -87,7 +87,7 @@ function LoginForm() {
               >
                 Iniciar Sesión
               </Button>
-              <Separator className="bg-gray-400" />
+              <Separator className="bg-gray-300" />
               <Button
                 type="button"
                 onClick={() => signIn("google", { callbackUrl: "/" })}
