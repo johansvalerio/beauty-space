@@ -93,7 +93,7 @@ function RegisterForm() {
   };
 
   return (
-    <div className="md:px-6 lg:px-8">
+    <div className="md:px-6 lg:px-8 p-4">
       <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-4xl bg-gradient-to-r from-rose-400 to-purple-400 p-4 rounded-lg rounded-br-none rounded-bl-none">
         Regístrate
       </h2>
