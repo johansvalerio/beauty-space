@@ -75,12 +75,12 @@ export default async function Header() {
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-6 w-6 text-black" />
-                <span className="sr-only">Toggle menu</span>
+                <span className="sr-only ">Toggle menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-[300px] sm:w-[400px] bg-white"
+              className="w-[300px] sm:w-[400px] bg-white text-black"
             >
               <nav className="flex flex-col gap-4 mt-8 items-center">
                 <a href="/" className="flex gap-1 items-center">
@@ -232,7 +232,7 @@ export default async function Header() {
           </SheetTrigger>
           <SheetContent
             side="right"
-            className="w-[300px] sm:w-[400px] bg-white"
+            className="w-[300px] sm:w-[400px] bg-white text-black"
           >
             <nav className="flex flex-col gap-4 mt-8 items-center">
               <a href="/" className="flex gap-1 items-center">
