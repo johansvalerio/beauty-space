@@ -5,7 +5,6 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-  CardFooter,
 } from "./ui/card";
 import { buttonVariants } from "./ui/button";
 import { services } from "../const/Services";
@@ -44,51 +43,66 @@ export default function ServiceCard() {
             transition={{ duration: 0.7, ease: "linear", delay: index * 0.3 }}
             className="w-full"
           >
-            <Card className="group w-full h-[360px] hover:h-full overflow-hidden flex flex-col transition-all duration-300 cursor-pointer">
-              <CardHeader>
-                <CardTitle>
-                  {service.title === "Pestanas" ? "Pestañas" : service.title}
-                </CardTitle>
-                <CardDescription className="line-clamp-1 group-hover:line-clamp-none">
-                  {service.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex-1">
-                <div className="relative w-full bg-gray-100 rounded-md">
-                  <img
-                    src={service.img}
-                    alt={service.title}
-                    className="w-full h-[250px] object-cover"
-                  />
-                  {(service.title === "Pestanas" ||
-                    service.title === "Cejas") && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-                      <p className="text-white text-center font-bold text-2xl">
-                        Próximamente
-                      </p>
-                    </div>
-                  )}
+            <Card className="group w-full h-[360px] overflow-hidden flex flex-col transition-all duration-300 cursor-pointer relative hover:bg-black/70">
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 z-10 pointer-events-none" />
+              <div className="relative z-20 group-hover:opacity-0 group-hover:translate-y-[-100%] transition-all duration-300">
+                <CardHeader>
+                  <CardTitle>
+                    {service.title === "Pestanas" ? "Pestañas" : service.title}
+                  </CardTitle>
+                  <CardDescription className="line-clamp-1 group-hover:line-clamp-none">
+                    {service.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="flex-1">
+                  <div className="relative w-full bg-gray-100 rounded-md">
+                    <img
+                      src={service.img}
+                      alt={service.title}
+                      className="w-full h-[250px] object-cover"
+                    />
+                    {(service.title === "Pestanas" ||
+                      service.title === "Cejas") && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+                        <p className="text-white text-center font-bold text-2xl">
+                          Próximamente
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </CardContent>
+              </div>
+              {/* Hover Info */}
+              <div className="absolute inset-0 flex flex-col items-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 text-white  ">
+                <div className="w-full flex-1 flex flex-col justify-center">
+                  <h3 className="text-2xl font-bold mb-4 pl-4">
+                    {service.title === "Pestanas" ? "Pestañas" : service.title}
+                  </h3>
+                  <ul className="space-y-2 text-center w-full list-disc list-inside">
+                    {service.info?.slice(0, 5).map((info) => (
+                      <li
+                        key={info.title}
+                        className="font-medium text-sm py-1 text-left pl-4"
+                      >
+                        {info.title}
+                      </li>
+                    ))}
+                    {service.info && service.info.length > 5 && (
+                      <li className="text-rose-200 text-sm mt-1 list-none text-left pl-4">
+                        +{service.info.length - 5} servicios más
+                      </li>
+                    )}
+                  </ul>
                 </div>
-
-                <ul className="list-disc list-inside mt-4 text-gray-600">
-                  {service.info?.map((info) => (
-                    <li
-                      key={info.title}
-                      className="text-gray-500 font-semibold"
-                    >
-                      {info.title}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-              <CardFooter className="mt-auto">
-                <Link
-                  href={`/servicios/${service.title.toLocaleLowerCase()}`}
-                  className={`${buttonVariants()} w-full font-semibold bg-rose-300 hover:bg-rose-400`}
-                >
-                  Ver más
-                </Link>
-              </CardFooter>
+                <div className="w-full mt-4">
+                  <Link
+                    href={`/servicios/${service.title.toLocaleLowerCase()}`}
+                    className={`${buttonVariants()} w-full font-semibold bg-rose-300 hover:bg-rose-400`}
+                  >
+                    Ver más
+                  </Link>
+                </div>
+              </div>
             </Card>
           </motion.div>
         ))}

@@ -1,13 +1,10 @@
-import useSession from "@/hooks/useSession";
 import BookingForm from "@/components/BookingForm";
 import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
 import ParticlesLayer from "@/components/Particles";
 //import Place from "@/components/Place";
 
-async function HomePage() {
-  const session = await useSession();
-
+function HomePage() {
   return (
     <>
       <ParticlesLayer />
@@ -15,7 +12,7 @@ async function HomePage() {
         <Hero />
         <ServiceCard />
         {/* <Place /> */}
-        <BookingForm session={session} />
+        <BookingForm />
       </div>
     </>
   );

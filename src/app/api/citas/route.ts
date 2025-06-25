@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import db from "@/lib/db";
 import { type Cita } from "@prisma/client";
+import { revalidatePath } from 'next/cache';
 
 export async function POST(request: Request) {
     const data = await request.json();
@@ -56,7 +57,7 @@ export async function PATCH(request: Request) {
             cita_status: data.cita_status
         }
     })
-
+    revalidatePath('/citas');
     return NextResponse.json(newCitaStatus)
 
 }

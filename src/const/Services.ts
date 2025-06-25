@@ -181,6 +181,7 @@ export const services: ServiceProps[] = [
             {
                 id: 4,
                 title: "Graduaciones",
+                description: "Solicita nuestros paquetes de graduación",
             },
             {
                 id: 5,
