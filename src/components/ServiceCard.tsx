@@ -44,7 +44,7 @@ export default function ServiceCard() {
             className="w-full"
           >
             <Card className="group w-full h-[360px] overflow-hidden flex flex-col transition-all duration-300 cursor-pointer relative hover:bg-black/70">
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 z-10 pointer-events-none" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/80 transition-all duration-300 z-10 pointer-events-none" />
               <div className="relative z-20 group-hover:opacity-0 group-hover:translate-y-[-100%] transition-all duration-300">
                 <CardHeader>
                   <CardTitle>
@@ -79,7 +79,7 @@ export default function ServiceCard() {
                     {service.title === "Pestanas" ? "Pestañas" : service.title}
                   </h3>
                   <ul className="space-y-2 text-center w-full list-disc list-inside">
-                    {service.info?.slice(0, 5).map((info) => (
+                    {service.info?.slice(0, 4).map((info) => (
                       <li
                         key={info.title}
                         className="font-medium text-sm py-1 text-left pl-4"
@@ -87,9 +87,9 @@ export default function ServiceCard() {
                         {info.title}
                       </li>
                     ))}
-                    {service.info && service.info.length > 5 && (
+                    {service.info && service.info.length > 4 && (
                       <li className="text-rose-200 text-sm mt-1 list-none text-left pl-4">
-                        +{service.info.length - 5} servicios más
+                        +{service.info.length - 4} servicios más
                       </li>
                     )}
                   </ul>
