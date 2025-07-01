@@ -92,7 +92,7 @@ function CitasCard({ citas }: { citas: Citas }) {
       cita?.user?.user_email === session?.user.email || session?.user.role === 1
   );
 
-  if (userCitas.length === 0) {
+  if (!userCitas) {
     return (
       <div className="mx-auto mt-20">
         <p className="text-lg font-bold text-white">No hay citas</p>
@@ -146,10 +146,12 @@ function CitasCard({ citas }: { citas: Citas }) {
                           {cita?.user?.user_email}
                         </span>
                       </p>
-                      <p className="text-md text-muted-foreground">
-                        Tel: {cita?.user?.user_phone.slice(0, 4)}-
-                        {cita?.user?.user_phone.slice(4, 9)}
-                      </p>
+                      {cita?.user?.user_phone ? (
+                        <p className="text-md text-muted-foreground">
+                          Tel: {cita?.user?.user_phone?.slice(0, 4)}-
+                          {cita?.user?.user_phone?.slice(4, 9)}
+                        </p>
+                      ) : null}
                       <p className="text-md text-muted-foreground">
                         Fecha: {formatDate(cita?.cita_fecha?.toString())}
                       </p>
