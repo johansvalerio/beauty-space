@@ -19,6 +19,12 @@ export default function ServiceCard() {
     triggerOnce: true,
   });
 
+  //servicios sin poestañas ni maquillaje
+  const servicesWithOut = services.filter(
+    (service) =>
+      service.title !== "Peluqueria" && service.title !== "Maquillaje"
+  );
+
   return (
     <section
       ref={ref}
@@ -26,7 +32,7 @@ export default function ServiceCard() {
       className="scroll-mt-28 m-8 md:m-16 space-y-8"
     >
       <motion.h2
-        className="text-3xl text-white font-bold text-start"
+        className="text-3xl font-bold text-start text-primary"
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.7, ease: "linear" }}
@@ -35,7 +41,7 @@ export default function ServiceCard() {
       </motion.h2>
 
       <article className="grid grid-cols-1 lg:grid-cols-3 w-full md:justify-items-center gap-8">
-        {services?.map((service: ServiceProps, index) => (
+        {servicesWithOut?.map((service: ServiceProps, index) => (
           <motion.div
             key={service.id}
             initial={{ opacity: 0, y: 20 }}
@@ -50,7 +56,7 @@ export default function ServiceCard() {
                   <CardTitle>
                     {service.title === "Pestanas" ? "Pestañas" : service.title}
                   </CardTitle>
-                  <CardDescription className="line-clamp-1 group-hover:line-clamp-none">
+                  <CardDescription className="line-clamp-1">
                     {service.description}
                   </CardDescription>
                 </CardHeader>
@@ -61,14 +67,6 @@ export default function ServiceCard() {
                       alt={service.title}
                       className="w-full h-[250px] object-cover"
                     />
-                    {(service.title === "Pestanas" ||
-                      service.title === "Cejas") && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-                        <p className="text-white text-center font-bold text-2xl">
-                          Próximamente
-                        </p>
-                      </div>
-                    )}
                   </div>
                 </CardContent>
               </div>

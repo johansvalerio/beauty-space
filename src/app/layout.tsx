@@ -109,7 +109,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-rose-300 to-purple-300`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-primary/10 to-pink-300`}
       >
         <AuthProvider>
           <Header />

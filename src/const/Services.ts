@@ -374,7 +374,7 @@ export const services: ServiceProps[] = [
     {
         id: 6,
         title: "Cejas",
-        description: "Armoniza tu rostro con técnicas profesionales de cejas.",
+        description: "Armoniza tu rostro con artista de cejas certificada.",
         img: "/img/ceja.JPG",
         info: [ 
 
@@ -398,7 +398,7 @@ export const services: ServiceProps[] = [
     {
         id: 7,
         title: "Pestanas",
-        description: "Realza tu mirada con lashista certificada.",
+        description: "Realza tu mirada con artista de pestañas certificada.",
         img: "/img/pestana.JPG",
         info: [
             {
@@ -408,12 +408,7 @@ export const services: ServiceProps[] = [
             },
             {
                 title: "Técnica clásica",
-                description: "Extensiones de pestañas aplicadas una a una, para un look natural y elegante.",
-                price: "₡ 11.000"
-            },
-            {
-                title: "Técnica volumen",
-                description: "Extensiones de pestañas aplicadas en grupos, para un look más dramático y voluminoso.",
+                description: "Extensión de pestañas individuales para una mirada natural y definida.",
                 price: "₡ 11.000"
             }
         ]

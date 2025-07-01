@@ -13,6 +13,8 @@ import {
   LogIn as LogInIcon,
   ChevronRightIcon,
 } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react";
 
 const navItems = [
   {
@@ -39,10 +41,28 @@ const navItems = [
 
 export default function Header() {
   const { data: session } = useSession();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Si baja el scroll más de 50px, cambia el estado isScrolled
+  // para aplicar estilos al header
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   if (!session) {
     return (
-      <header className="bg-white/90 shadow-sm sticky top-0 z-50 px-4">
+      <header
+        className={cn(
+          "sticky top-0 w-full z-50 transition-all duration-300 px-4",
+          isScrolled
+            ? "bg-white/70 backdrop-blur-md border-b border-border/40"
+            : "bg-transparent"
+        )}
+      >
         <nav className="container mx-auto flex justify-between items-center">
           <a href="/" className="flex gap-1 items-center">
             <img
@@ -53,55 +73,27 @@ export default function Header() {
           </a>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex space-x-4 items-center text-base">
+          <ul className="hidden md:flex space-x-4 items-center font-semibold">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.href}
+                  className="text-gray-800 hover:text-pink-600"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
             <li>
-              <a href="/#hero" className="text-gray-600 hover:text-pink-600">
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="/#services"
-                className="text-gray-600 hover:text-pink-600"
+              <Link
+                href="/auth/signin"
+                className="flex items-center gap-1 text-black hover:scale-105 transition-all duration-300"
               >
-                Servicios
-              </a>
+                <LogInIcon className="h-6 w-6" />
+                Sign in
+              </Link>
             </li>
-            <li>
-              <a href="/#contact" className="text-gray-600 hover:text-pink-600">
-                Agendar
-              </a>
-            </li>
-            <li>
-              <a href="/#info" className="text-gray-600 hover:text-pink-600">
-                Info
-              </a>
-            </li>
-            <Link
-              href="/auth/signin"
-              className="flex items-center gap-1 text-black hover:text-purple-600"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-login"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M15 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
-                <path d="M21 12h-13l3 -3" />
-                <path d="M11 15l-3 -3" />
-              </svg>
-              Sign in
-            </Link>
           </ul>
-
           {/* Mobile Navigation */}
           <Sheet>
             <SheetTrigger asChild>
@@ -180,7 +172,7 @@ export default function Header() {
                 <div className="p-6 border-t border-pink-100">
                   <Link
                     href="/auth/signin"
-                    className="flex items-center justify-center gap-3 w-full px-6 py-3 bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-xl hover:shadow-lg hover:shadow-pink-200 transition-all"
+                    className="flex hover:scale-105 duration-300 items-center justify-center gap-3 w-full px-6 py-3 bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-xl hover:shadow-lg hover:shadow-pink-200 transition-all"
                   >
                     <LogInIcon className="h-5 w-5 mr-1" />
                     Iniciar sesión

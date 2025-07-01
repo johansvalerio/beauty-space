@@ -43,14 +43,18 @@ export default function ServiceDetailsPage({ params }: Params) {
         <ParticlesLayer /> {/* efecto bubbles  */}
         <section className="mx-4 my-10 md:m-16 text-center space-y-12">
           <article>
-            <motion.h1
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.7, delay: 0, ease: "linear" }}
-              className="text-4xl font-bold text-white mb-4 uppercase"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
             >
-              Servicios de {serviceData.title}
-            </motion.h1>
+              Servicios de {""}
+              <span className=" bg-gradient-to-r from-primary via-pink-700 to-pink-700 bg-clip-text text-transparent">
+                {serviceData.title}
+              </span>
+            </motion.h2>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -87,7 +91,7 @@ export default function ServiceDetailsPage({ params }: Params) {
                   className="w-full"
                 >
                   <div key={info.title}>
-                    <h2 className="text-4xl font-bold text-white mb-4 uppercase">
+                    <h2 className="text-4xl font-bold text-primary/70 mb-4 uppercase">
                       {info.title}
                     </h2>
                     {!info.subinfo && (
@@ -182,7 +186,7 @@ export default function ServiceDetailsPage({ params }: Params) {
                               <CardFooter className="mt-auto mx-auto">
                                 <h2
                                   id="price"
-                                  className="bg-gradient-to-r from-rose-400 to-purple-400 inline-block text-transparent bg-clip-text text-3xl font-bold"
+                                  className="bg-gradient-to-r from-primary/80 via-primary/80 to-pink-700 inline-block text-transparent bg-clip-text text-3xl font-bold"
                                 >
                                   Precio: {subinfo.price}
                                 </h2>

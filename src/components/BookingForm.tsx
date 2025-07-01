@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, FormEvent } from "react";
 import { formatDate } from "@/hooks/formatDate";
+import { LogIn } from "lucide-react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
@@ -205,12 +206,15 @@ export default function BookingForm() {
           </CardContent>
         </Card>
         {!session && (
-          <div className="absolute rounded-lg inset-0 bg-rose-300/60 bg-opacity-20 flex items-center justify-center">
+          <div className="absolute z-20 inset-0 bg-pink-500/20 backdrop-blur-sm rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-pink-500/30">
             <Link
               href="/auth/signin"
-              className="text-xl bg-gray-700 rounded hover:bg-gray-800 text-white m-4 p-4"
+              className="px-6 py-3 bg-white/90 hover:bg-white text-pink-600 font-medium rounded-full 
+                       border-2 border-white/50 hover:border-white/80 shadow-lg hover:shadow-xl 
+                       transition-all duration-300 hover:scale-105 flex items-center gap-2"
             >
-              Inicia sesión para agendar tu cita
+              <span>Inicia sesión para agendar tu cita</span>
+              <LogIn className="h-5 w-5" />
             </Link>
           </div>
         )}

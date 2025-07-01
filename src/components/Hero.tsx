@@ -17,19 +17,22 @@ export default function Hero() {
       >
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.7, delay: 0, ease: "linear" }}
-          className="text-4xl f text-white mb-4 uppercase font-light"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
         >
-          Estudio de belleza integral
+          <span className="uppercase bg-gradient-to-r from-primary via-primary to-pink-700 bg-clip-text text-transparent">
+            Estudio de belleza integral
+          </span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7, delay: 0.3, ease: "linear" }}
-          className="text-xl text-white mb-8 font-light"
+          className="text-xl text-primary mb-8 font-light "
         >
-          Servicios de quiropodia, peluquería, maquillaje, manicura y pedicura.
+          Servicios de quiropodia, manicura, pedicura, cejas y pestañas.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -43,8 +46,8 @@ export default function Hero() {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-pink-600 bg-opacity-30 flex items-center justify-end md:p-24">
-            <h3 className="text-3xl text-white uppercase font-light">
-              Experimenta el cambio
+            <h3 className="text-3xl text-white font-light">
+              Relájate, es tu momento.
             </h3>
           </div>
         </motion.div>
