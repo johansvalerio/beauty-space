@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Calendar, LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 export default function DropDown() {
   const { data: session } = useSession();
@@ -22,8 +23,8 @@ export default function DropDown() {
 
   const router = useRouter();
 
-  const handleSignOut = () => {
-    router.push("/api/auth/signout");
+  const handleSignOut = async () => {
+    await signOut({ redirect: false, callbackUrl: "/" });
   };
 
   const handleCitas = () => {
@@ -40,7 +41,7 @@ export default function DropDown() {
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
+      <DropdownMenuContent align="end" className="w-56">
         <div className="flex items-center justify-start gap-2 p-2">
           <Avatar className="h-8 w-8">
             <AvatarImage src={userImage} alt={userName} />

@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   Home as HomeIcon,
-  Scissors as ScissorsIcon,
   CalendarDays as CalendarIcon,
   Info as InfoIcon,
   X as XIcon,
@@ -15,6 +14,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
+import NailPolishIcon from "@/svg/NailPolishIcon";
 
 const navItems = [
   {
@@ -25,7 +25,7 @@ const navItems = [
   {
     name: "Servicios",
     href: "/#services",
-    icon: <ScissorsIcon className="h-6 w-6" />,
+    icon: <NailPolishIcon className="h-6 w-6" />,
   },
   {
     name: "Agendar",
@@ -73,14 +73,15 @@ export default function Header() {
           </a>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex space-x-4 items-center font-semibold">
+          <ul className="hidden md:flex space-x-8 items-center font-semibold">
             {navItems.map((item) => (
               <li key={item.name}>
                 <a
                   href={item.href}
-                  className="text-gray-800 hover:text-pink-600"
+                  className="flex items-center gap-2 text-gray-800 hover:text-pink-600"
                 >
-                  {item.name}
+                  <span>{item.icon}</span>
+                  <span>{item.name}</span>
                 </a>
               </li>
             ))}
@@ -191,7 +192,14 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-white/90 shadow-sm sticky top-0 z-50 px-4">
+    <header
+      className={cn(
+        "sticky top-0 w-full z-50 transition-all duration-300 px-4",
+        isScrolled
+          ? "bg-white/70 backdrop-blur-md border-b border-border/40"
+          : "bg-transparent"
+      )}
+    >
       <nav className="container mx-auto flex justify-between items-center">
         <a href="/" className="flex gap-1 items-center">
           <img
@@ -202,55 +210,32 @@ export default function Header() {
         </a>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-4 items-center">
-          <li>
-            <a href="/#hero" className="text-gray-600 hover:text-pink-600">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="/#services" className="text-gray-600 hover:text-pink-600">
-              Servicios
-            </a>
-          </li>
-          <li>
-            <a href="/#contact" className="text-gray-600 hover:text-pink-600">
-              Agendar
-            </a>
-          </li>
-          <li>
-            <a href="/#info" className="text-gray-600 hover:text-pink-600">
-              Info
-            </a>
-          </li>
+        <ul className="hidden md:flex space-x-8 items-center font-semibold">
+          {navItems.map((item) => (
+            <li key={item.name}>
+              <a
+                href={item.href}
+                className="flex items-center gap-2 text-gray-800 hover:text-pink-600 transition-colors duration-200"
+              >
+                <span>{item.icon}</span>
+                <span>{item.name}</span>
+              </a>
+            </li>
+          ))}
           {session ? (
             <li>
               <DropDown />
             </li>
           ) : (
-            <Link
-              href="/auth/signin"
-              className="flex items-center gap-1 text-black"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-login"
+            <li>
+              <Link
+                href="/auth/signin"
+                className="flex items-center gap-2 px-4 py-2 bg-pink-50 hover:bg-pink-100 text-pink-600 rounded-full transition-all duration-300 hover:scale-105"
               >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M15 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
-                <path d="M21 12h-13l3 -3" />
-                <path d="M11 15l-3 -3" />
-              </svg>
-              Sign in
-            </Link>
+                <LogInIcon className="h-5 w-5" />
+                <span>Sign in</span>
+              </Link>
+            </li>
           )}
         </ul>
 
