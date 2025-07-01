@@ -26,6 +26,7 @@ import Link from "next/link";
 
 export default function BookingForm() {
   const { data: session } = useSession();
+  console.log(session?.user?.id);
   const name = session?.user.name as string;
   const email = session?.user.email as string;
   const [service, setService] = useState("");
@@ -72,13 +73,15 @@ export default function BookingForm() {
 
     if (res.ok) {
       const formatedDate = formatDate(date);
-      const phoneNumber = ["+50688015998", "+50663417731"];
+      const phoneNumber = ["+50688015998"];
 
       const message =
         service === "Quiropodia"
-          ? `🗓 *Reservación Pendiente*\n\n💅 *Servicio:* ${service}\n👤 *Nombre:* _${name}_\n📧 *Email:* _${email}_\n🕒 *Fecha:* ${formatedDate}\n\n¡Gracias por tu reserva! 💖✨`
-          : `🗓 *Reservación Pendiente*\n\n💅 *Servicio:* ${service}\n💆‍♀️ *Tipo de servicio:* ${speciality}\n👤 *Nombre:* _${name}_\n📧 *Email:* _${email}_\n🕒 *Fecha:* ${formatedDate}\n\n¡Gracias por tu reserva! 💖✨`;
+          ? `🗓 *Reservación Pendiente*\n *Nombre:* ${name}\n *Servicio:* _${service}_\n🕒 *Fecha:* ${formatedDate}\n`
+          : `🗓 *Reservación Pendiente*\n *Nombre:* ${name}\n *Servicio:* ${service}\n *Tipo de servicio:* _${speciality}_\n🕒 *Fecha:* ${formatedDate}\n`;
 
+      // Abre WhatsApp con el mensaje predefinido
+      // Para agregar más números de teléfono si es necesario
       phoneNumber.forEach((phoneNumber) => {
         const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, "_blank");

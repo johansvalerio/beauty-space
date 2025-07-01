@@ -55,26 +55,30 @@ export const authOptions: NextAuthOptions = {
         signIn: async ({ user, account, profile }) => {
             // Si el provider es Google, crea el usuario si no existe
             if (account?.provider === "google") {
-                const userFound = await db.user.findUnique({
+                // Buscar el usuario por email
+                const existingUser = await db.user.findUnique({
                     where: { user_email: user.email! },
                 });
-                console.log("userFound", userFound);
-                if (!userFound) {
-                    await db.user.create({
+
+                // Si el usuario no existe, crearlo
+                if (!existingUser) {
+                    const newUser = await db.user.create({
                         data: {
                             user_name: user.name!,
                             user_email: user.email!,
                             user_image: user.image,
-                            user_provider: account.provider, //google como proveedor, puede cambiar si es facebook, github, etc
-                            //no agregar password ni teléfono para google
+                            user_provider: account.provider,
                         },
-
                     });
+                    // Asignar el ID de la base de datos al usuario
+                    user.id = newUser.user_id.toString();
+                } else {
+                    // Si el usuario ya existe, usar su ID de la base de datos
+                    user.id = existingUser.user_id.toString();
                 }
-                // Si el usuario ya existe, no hacer nada
             }
             return true;
-        },
+        },  
         session: async ({ session, token }: { session: Session, token: JWT }) => {
             if (session?.user) {
                 session.user.id = token.sub as string; // token.uid or token.sub both work
