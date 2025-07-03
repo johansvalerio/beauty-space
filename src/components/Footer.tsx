@@ -33,10 +33,10 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4 text-black">
               Sígueme en
             </h4>
-            <div className="flex  gap-4">
+            <div className="flex gap-4">
               {/* <a href="#" className="text-gray-600 flex gap-1 items-center hover:text-pink-600">Facebook <Facebook /> </a> */}
               <a
-                href="https://www.instagram.com/beauty_space_cr/?hl=es"
+                href="https://www.instagram.com/xsbel.studio/?hl=es"
                 target="_blank"
                 className="flex gap-1 items-center font-semibold text-pink-600 hover:text-pink-400 underline underline-offset-2"
               >
@@ -49,7 +49,7 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4 text-black ">
               Ubicación GPS
             </h4>
-            <div className="flex  gap-4">
+            <div className="flex gap-4">
               <a
                 href="https://maps.app.goo.gl/ev1UPxbUMjnhVSEX8"
                 target="_blank"

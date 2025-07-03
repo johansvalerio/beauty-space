@@ -22,7 +22,7 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
         >
-          <span className="uppercase bg-gradient-to-r from-primary via-primary to-pink-700 bg-clip-text text-transparent">
+          <span className="uppercase bg-gradient-to-r from-primary dark:from-white via-primary dark:via-white to-pink-700 dark:to-pink-700 bg-clip-text text-transparent">
             Estudio de belleza integral
           </span>
         </motion.h2>
