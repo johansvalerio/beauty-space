@@ -17,7 +17,7 @@ export function ThemeToggle({ showLabel = false }: ThemeToggleProps) {
       aria-label={`Cambiar a modo ${isDark ? "claro" : "oscuro"}`}
     >
       {isDark ? (
-        <Sun className="w-5 h-5 text-yellow-400" />
+        <Sun className="w-5 h-5 text-white" />
       ) : (
         <Moon className="w-5 h-5 text-black" />
       )}
