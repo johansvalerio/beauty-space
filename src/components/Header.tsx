@@ -82,7 +82,7 @@ export default function Header() {
               >
                 <a
                   href={item.href}
-                  className="flex items-center gap-2 dark:text-white text-white text-foreground hover:text-primary transition-colors duration-200"
+                  className="flex items-center gap-2 dark:text-white text-black text-foreground hover:text-primary transition-colors duration-200"
                 >
                   <span>{item.icon}</span>
                   <span>{item.name}</span>
@@ -230,7 +230,7 @@ export default function Header() {
             >
               <a
                 href={item.href}
-                className="flex items-center gap-2 dark:text-white text-black text-foreground hover:text-primary transition-colors duration-200"
+                className="flex items-center gap-2 dark:text-white text-black transition-colors duration-200"
               >
                 <span>{item.icon}</span>
                 <span>{item.name}</span>
