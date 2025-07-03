@@ -76,7 +76,10 @@ export default function Header() {
           {/* Desktop Navigation */}
           <ul className="hidden md:flex space-x-8 items-center font-semibold">
             {navItems.map((item) => (
-              <li key={item.name}>
+              <li
+                key={item.name}
+                className="hover:scale-105 transition-transform duration-200"
+              >
                 <a
                   href={item.href}
                   className="flex items-center gap-2 dark:text-white text-white text-foreground hover:text-primary transition-colors duration-200"
@@ -86,10 +89,10 @@ export default function Header() {
                 </a>
               </li>
             ))}
-            <li>
+            <li className="hover:scale-105 transition-transform duration-200">
               <ThemeToggle />
             </li>
-            <li>
+            <li className="hover:scale-105 transition-transform duration-200">
               <Link
                 href="/auth/signin"
                 className="flex items-center gap-1 dark:text-white text-black text-foreground hover:text-primary transition-all duration-300"
@@ -221,7 +224,10 @@ export default function Header() {
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-8 items-center font-semibold">
           {navItems.map((item) => (
-            <li key={item.name}>
+            <li
+              key={item.name}
+              className="hover:scale-105 transition-transform duration-200"
+            >
               <a
                 href={item.href}
                 className="flex items-center gap-2 dark:text-white text-black text-foreground hover:text-primary transition-colors duration-200"
@@ -231,17 +237,15 @@ export default function Header() {
               </a>
             </li>
           ))}
-          <li>
-            <div className="flex items-center p-3 rounded-xl hover:bg-pink-50 hover:text-pink-600 transition-colors group">
-              <ThemeToggle showLabel={true} />
-            </div>
+          <li className="hover:scale-105 transition-transform duration-200">
+            <ThemeToggle showLabel={false} />
           </li>
           {session ? (
-            <li>
+            <li className="hover:scale-105 transition-transform duration-200">
               <DropDown />
             </li>
           ) : (
-            <li>
+            <li className="hover:scale-105 transition-transform duration-200">
               <Link
                 href="/auth/signin"
                 className="flex items-center gap-2 px-4 py-2 bg-pink-50 hover:bg-pink-100 text-pink-600 rounded-full transition-all duration-300 hover:scale-105"
