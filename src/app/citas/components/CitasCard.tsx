@@ -101,8 +101,8 @@ function CitasCard({ citas }: { citas: Citas }) {
   }
 
   return (
-    <div className="md:px-6 lg:px-8 px-6 mx-auto">
-      <div className="grid grid-cols-1 place-items-center lg:grid-cols-3 lg:gap-12">
+    <div className="md:px-6 lg:px-8 py-10 mx-auto">
+      <div className="grid grid-cols-1 place-items-center lg:grid-cols-3 gap-4 lg:gap-12">
         {userCitas
           .map((cita) => {
             const statusShadow = getStatusShadow(cita.cita_status);
@@ -112,7 +112,7 @@ function CitasCard({ citas }: { citas: Citas }) {
             return (
               <Card
                 key={cita.cita_id}
-                className={`w-full mt-4 lg:mt-0 bg-white ${statusShadow} relative overflow-hidden`}
+                className={`w-full h-full min-h-[400px] flex flex-col mt-4 lg:mt-0 bg-white ${statusShadow} relative overflow-hidden`}
               >
                 <div
                   className={`absolute inset-0 transform skew-y-[-18deg] origin-top-right ${statusDiagonal}`}
@@ -128,7 +128,7 @@ function CitasCard({ citas }: { citas: Citas }) {
                         {cita?.user?.user_name.substring(0, 2).toUpperCase()}
                       </AvatarFallback>
                     </Avatar>
-                    <CardTitle className="text-lg capitalize">
+                    <CardTitle className="text-lg capitalize text-black">
                       {cita?.user?.user_name}{" "}
                     </CardTitle>
                   </div>
@@ -136,29 +136,29 @@ function CitasCard({ citas }: { citas: Citas }) {
                     Cita #{cita?.cita_id}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="relative">
+                <CardContent className="relative flex-grow">
                   <div className="flex flex-col space-y-4">
                     <div className="flex flex-col space-y-2">
-                      <p className="text-md text-muted-foreground">
+                      <p className="text-md text-black">
                         Correo:
-                        <span className="text-md text-muted-foreground">
+                        <span className="text-md text-gray-600">
                           {" "}
                           {cita?.user?.user_email}
                         </span>
                       </p>
                       {cita?.user?.user_phone ? (
-                        <p className="text-md text-muted-foreground">
+                        <p className="text-md text-black">
                           Tel: {cita?.user?.user_phone?.slice(0, 4)}-
                           {cita?.user?.user_phone?.slice(4, 9)}
                         </p>
                       ) : null}
-                      <p className="text-md text-muted-foreground">
+                      <p className="text-md text-black">
                         Fecha: {formatDate(cita?.cita_fecha?.toString())}
                       </p>
-                      <p className="text-md text-muted-foreground">
+                      <p className="text-md text-black">
                         Servicio: {cita?.cita_servicio}
                       </p>
-                      <p className="text-md text-muted-foreground">
+                      <p className="text-md text-black">
                         Tipo de servicio: {cita?.cita_tiposervicio}
                       </p>
                       {updStatus === false || id !== cita.cita_id ? (
@@ -178,10 +178,10 @@ function CitasCard({ citas }: { citas: Citas }) {
                           Status: {cita.cita_status}
                         </p>
                       ) : (
-                        <p className="flex items-center">
+                        <p className="flex items-center text-black">
                           Status:
                           <select
-                            className="mx-1 bg-zinc-800 p-1 rounded text-white"
+                            className="mx-1 bg-zinc-100 p-1 rounded text-black border border-gray-300"
                             onChange={(e) => setStatus(e.target.value)}
                             defaultValue={cita.cita_status}
                             name="status"

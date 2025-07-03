@@ -26,14 +26,21 @@ export default function Hero() {
             Estudio de belleza integral
           </span>
         </motion.h2>
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: "linear" }}
-          className="text-xl text-primary mb-8 font-light "
+          transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+          className="inline-flex flex-col items-center space-y-2"
         >
-          Servicios de quiropodia, manicura, pedicura, cejas y pestañas.
-        </motion.p>
+          <div className="text-center">
+            <p className="text-xl md:text-2xl font-light">
+              <span className="bg-gradient-to-r from-pink-500 via-pink-600 to-pink-700 dark:text-white bg-clip-text text-transparent">
+                Servicios de quiropodía, manicura, pedicura, cejas y pestañas.
+              </span>
+            </p>
+            <div className="w-24 md:w-96 mt-6 h-1 bg-gradient-to-r from-pink-400 to-pink-600 mx-auto rounded-full" />
+          </div>
+        </motion.div>
       </section>
     </motion.div>
   );

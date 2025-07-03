@@ -4,19 +4,19 @@ import { useInView } from "react-intersection-observer";
 export default function Place() {
   const { ref, inView } = useInView({
     threshold: 0.1,
-    triggerOnce: false,
+    triggerOnce: true,
   });
   return (
     <section ref={ref} className="mx-4 my-10 md:m-16 text-left space-y-8">
-      <motion.p
-        className="text-white font-semibold text-3xl"
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        exit={{ opacity: 0, y: 20 }}
         transition={{ duration: 0.7, ease: "linear" }}
       >
-        Encuentranos en
-      </motion.p>
+        <h2 className="dark:text-white text-center md:text-left text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-500 to-black bg-clip-text text-transparent">
+          Encuentranos en
+        </h2>
+      </motion.div>
       <article className="grid grid-cols-1 md:grid-cols-[2fr_2fr] w-full h-96 gap-1 md:gap-0">
         <motion.div
           className=" h-full"

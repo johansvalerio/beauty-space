@@ -29,16 +29,17 @@ export default function ServiceCard() {
     <section
       ref={ref}
       id="services"
-      className="scroll-mt-28 px-4 py-10 md:py-10 md:m-16 space-y-8"
+      className="scroll-mt-28 px-4 md:py-16 py-10 md:m-16 space-y-8"
     >
-      <motion.h2
-        className="text-3xl font-bold text-start text-primary"
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.7, ease: "linear" }}
       >
-        Servicios
-      </motion.h2>
+        <h2 className="dark:text-white text-center md:text-left text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-500 to-black bg-clip-text text-transparent">
+          Nuestros servicios
+        </h2>
+      </motion.div>
 
       <article className="grid grid-cols-1 lg:grid-cols-3 w-full md:justify-items-center gap-8">
         {servicesWithOut?.map((service: ServiceProps, index) => (

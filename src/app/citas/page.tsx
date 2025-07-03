@@ -1,4 +1,3 @@
-import Particles from "@/components/Particles";
 import CitasCard from "@/app/citas/components/CitasCard";
 import { Citas } from "@/types/CitaUser";
 import useSession from "@/hooks/useSession";
@@ -23,7 +22,6 @@ export default async function CitasPage() {
   if (!session) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
-        <Particles />
         <Link
           href="/auth/signin"
           className="text-xl bg-gray-700 rounded hover:bg-gray-800 text-white p-4"
@@ -36,7 +34,6 @@ export default async function CitasPage() {
 
   return (
     <div className="min-h-screen m-8 flex flex-col">
-      <Particles />
       <CitasCard citas={citas} />
     </div>
   );

@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import Particles from "@/components/Particles";
 import AuthProvider from "@/providers/auth-provider";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -111,15 +112,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-white/10 to-pink-300 dark:bg-gradient-to-r dark:from-pink-400 dark:via-black dark:to-black`}
       >
-        <AuthProvider>
-          <Header />
-          <main className=" w-full mx-auto relative z-10">
-            <Particles />
-            {children}
-            <Analytics />
-          </main>
-          <Footer />
-        </AuthProvider>
+        <ThemeProvider>
+          <AuthProvider>
+            <Header />
+            <main className="w-full mx-auto relative z-10">
+              <Particles />
+              {children}
+              <Analytics />
+            </main>
+            <Footer />
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

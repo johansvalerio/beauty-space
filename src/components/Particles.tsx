@@ -8,7 +8,6 @@ import { Container, ISourceOptions } from "@tsparticles/engine";
 
 function ParticlesLayer() {
   const [init, setInit] = useState(false);
-
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
