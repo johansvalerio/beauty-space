@@ -29,7 +29,7 @@ export default function ServiceCard() {
     <section
       ref={ref}
       id="services"
-      className="scroll-mt-28 m-8 md:m-16 space-y-8"
+      className="scroll-mt-28 px-4 py-10 md:py-10 md:m-16 space-y-8"
     >
       <motion.h2
         className="text-3xl font-bold text-start text-primary"
@@ -49,19 +49,19 @@ export default function ServiceCard() {
             transition={{ duration: 0.7, ease: "linear", delay: index * 0.3 }}
             className="w-full"
           >
-            <Card className="group w-full h-[360px] overflow-hidden flex flex-col transition-all duration-300 cursor-pointer relative hover:bg-black/70">
+            <Card className="group w-full h-[360px] overflow-hidden flex flex-col transition-all duration-300 cursor-pointer relative hover:bg-black/70 bg-card">
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/80 transition-all duration-300 z-10 pointer-events-none" />
               <div className="relative z-20 group-hover:opacity-0 group-hover:translate-y-[-100%] transition-all duration-300">
                 <CardHeader>
-                  <CardTitle>
+                  <CardTitle className="text-foreground">
                     {service.title === "Pestanas" ? "Pestañas" : service.title}
                   </CardTitle>
-                  <CardDescription className="line-clamp-1">
+                  <CardDescription className="text-muted-foreground line-clamp-1">
                     {service.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="flex-1">
-                  <div className="relative w-full bg-gray-100 rounded-md">
+                  <div className="relative w-full bg-secondary/30 rounded-md">
                     <img
                       src={service.img}
                       alt={service.title}
@@ -73,20 +73,20 @@ export default function ServiceCard() {
               {/* Hover Info */}
               <div className="absolute inset-0 flex flex-col items-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 text-white  ">
                 <div className="w-full flex-1 flex flex-col justify-center">
-                  <h3 className="text-2xl font-bold mb-4 pl-4">
+                  <h3 className="text-2xl font-bold mb-4 pl-4 text-foreground">
                     {service.title === "Pestanas" ? "Pestañas" : service.title}
                   </h3>
                   <ul className="space-y-2 text-center w-full list-disc list-inside">
                     {service.info?.slice(0, 4).map((info) => (
                       <li
                         key={info.title}
-                        className="font-medium text-sm py-1 text-left pl-4"
+                        className="font-medium text-sm py-1 text-left pl-4 text-foreground"
                       >
                         {info.title}
                       </li>
                     ))}
                     {service.info && service.info.length > 4 && (
-                      <li className="text-rose-200 text-sm mt-1 list-none text-left pl-4">
+                      <li className="text-rose-200 dark:text-rose-300 text-sm mt-1 list-none text-left pl-4">
                         +{service.info.length - 4} servicios más
                       </li>
                     )}

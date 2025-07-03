@@ -15,6 +15,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import NailPolishIcon from "@/svg/NailPolishIcon";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   {
@@ -59,7 +60,7 @@ export default function Header() {
         className={cn(
           "sticky top-0 w-full z-50 transition-all duration-300 px-4",
           isScrolled
-            ? "bg-white/70 backdrop-blur-md border-b border-border/40"
+            ? "bg-background/80 dark:bg-background/90 backdrop-blur-lg border-b border-border/40"
             : "bg-transparent"
         )}
       >
@@ -78,7 +79,7 @@ export default function Header() {
               <li key={item.name}>
                 <a
                   href={item.href}
-                  className="flex items-center gap-2 text-gray-800 hover:text-pink-600"
+                  className="flex items-center gap-2 dark:text-white text-white text-foreground hover:text-primary transition-colors duration-200"
                 >
                   <span>{item.icon}</span>
                   <span>{item.name}</span>
@@ -86,9 +87,12 @@ export default function Header() {
               </li>
             ))}
             <li>
+              <ThemeToggle />
+            </li>
+            <li>
               <Link
                 href="/auth/signin"
-                className="flex items-center gap-1 text-black hover:scale-105 transition-all duration-300"
+                className="flex items-center gap-1 dark:text-white text-black text-foreground hover:text-primary transition-all duration-300"
               >
                 <LogInIcon className="h-6 w-6" />
                 Sign in
@@ -166,6 +170,11 @@ export default function Header() {
                         </SheetTrigger>
                       </li>
                     ))}
+                    <li>
+                      <div className="flex items-center p-3 rounded-xl hover:bg-pink-50 hover:text-pink-600 transition-colors group">
+                        <ThemeToggle showLabel={true} />
+                      </div>
+                    </li>
                   </ul>
                 </nav>
 
@@ -215,13 +224,18 @@ export default function Header() {
             <li key={item.name}>
               <a
                 href={item.href}
-                className="flex items-center gap-2 text-gray-800 hover:text-pink-600 transition-colors duration-200"
+                className="flex items-center gap-2 dark:text-white text-black text-foreground hover:text-primary transition-colors duration-200"
               >
                 <span>{item.icon}</span>
                 <span>{item.name}</span>
               </a>
             </li>
           ))}
+          <li>
+            <div className="flex items-center p-3 rounded-xl hover:bg-pink-50 hover:text-pink-600 transition-colors group">
+              <ThemeToggle showLabel={true} />
+            </div>
+          </li>
           {session ? (
             <li>
               <DropDown />
@@ -304,6 +318,11 @@ export default function Header() {
                       </SheetTrigger>
                     </li>
                   ))}
+                  <li>
+                    <div className="flex items-center p-3 rounded-xl hover:bg-pink-50 hover:text-pink-600 transition-colors group">
+                      <ThemeToggle showLabel={true} />
+                    </div>
+                  </li>
                 </ul>
               </nav>
 

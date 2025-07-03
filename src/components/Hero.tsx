@@ -34,23 +34,6 @@ export default function Hero() {
         >
           Servicios de quiropodia, manicura, pedicura, cejas y pestañas.
         </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.7, delay: 0.6, ease: "linear" }}
-          className="relative h-96 rounded-lg overflow-hidden"
-        >
-          <img
-            src="/img/beauty.jpg"
-            alt="Beauty Space CR"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-pink-600 bg-opacity-30 flex items-center justify-end md:p-24">
-            <h3 className="text-3xl text-white font-light">
-              Relájate, es tu momento.
-            </h3>
-          </div>
-        </motion.div>
       </section>
     </motion.div>
   );
