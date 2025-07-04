@@ -58,7 +58,7 @@ export default function Header() {
     return (
       <header
         className={cn(
-          "sticky top-0 w-full z-50 transition-all duration-300 px-4",
+          "fixed top-0 w-full z-50 transition-all duration-300 px-4",
           isScrolled
             ? "bg-background/80 dark:bg-background/90 backdrop-blur-lg border-b border-border/40"
             : "bg-transparent"
@@ -206,7 +206,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 w-full z-50 transition-all duration-300 px-4",
+        "fixed top-0 w-full z-50 transition-all duration-300 px-4",
         isScrolled
           ? "bg-background/80 dark:bg-background/90 backdrop-blur-lg border-b border-border/40"
           : "bg-transparent"

@@ -13,7 +13,7 @@ export default function Hero() {
       <section
         ref={ref}
         id="hero"
-        className="scroll-mt-40 mx-4 my-10 md:m-16 text-center"
+        className="w-full min-h-[80vh] md:min-h-screen flex flex-col items-center justify-center px-4 text-center scroll-mt-40"
       >
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
