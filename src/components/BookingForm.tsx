@@ -98,8 +98,11 @@ export default function BookingForm() {
   };
 
   return (
-    <>
-      <section id="contact" className="scroll-mt-28 m-4 py-16 md:m-16">
+    <div className="w-full">
+      <section
+        id="contact"
+        className="scroll-mt-16 m-4  md:mx-16 min-h-screen flex flex-col items-center justify-center"
+      >
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 ">
             {/* Columna Izquierda - Mensaje */}
@@ -112,7 +115,7 @@ export default function BookingForm() {
                 belleza natural.
               </p>
               <div className="space-y-4">
-                <div className="flex items-center space-x-4 p-4 bg-pink-50 dark:bg-gray-700 rounded-lg">
+                <div className="flex items-center space-x-4 p-4 bg-pink-50 dark:bg-gray-900 rounded-lg">
                   <div className="p-3 bg-pink-100 dark:bg-pink-900/30 rounded-full">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +151,7 @@ export default function BookingForm() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4 p-4 bg-pink-50 dark:bg-gray-700 rounded-lg">
+                <div className="flex items-center space-x-4 p-4 bg-pink-50 dark:bg-gray-900 rounded-lg">
                   <div className="p-3 bg-pink-100 dark:bg-pink-900/30 rounded-full">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -342,6 +345,6 @@ export default function BookingForm() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

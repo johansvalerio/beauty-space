@@ -7,17 +7,15 @@ export default function Place() {
     triggerOnce: true,
   });
   return (
-    <section ref={ref} className="mx-4 my-10 md:m-16 text-left space-y-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.7, ease: "linear" }}
-      >
-        <h2 className="dark:text-white text-center md:text-left text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-500 to-black bg-clip-text text-transparent">
-          Encuentranos en
-        </h2>
-      </motion.div>
-      <article className="grid grid-cols-1 md:grid-cols-[2fr_2fr] w-full h-96 gap-1 md:gap-0">
+    <section
+      ref={ref}
+      id="place"
+      className="scroll-mt-20 py-20 mx-4 md:mx-16 text-left flex flex-col md:items-start items-center justify-center"
+    >
+      <h2 className="dark:text-white text-center md:text-left text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-500 to-black bg-clip-text text-transparent">
+        Encuentranos en
+      </h2>
+      <article className="grid grid-cols-1 md:grid-cols-[2fr_2fr] w-full h-96 gap-1 md:gap-0 mt-6">
         <motion.div
           className=" h-full"
           initial={{ opacity: 0, y: 20 }}

@@ -11,6 +11,7 @@ import {
   X as XIcon,
   LogIn as LogInIcon,
   ChevronRightIcon,
+  MapPinIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
@@ -27,6 +28,11 @@ const navItems = [
     name: "Servicios",
     href: "/#services",
     icon: <NailPolishIcon className="h-6 w-6" />,
+  },
+  {
+    name: "Ubicación",
+    href: "/#place",
+    icon: <MapPinIcon className="h-6 w-6" />,
   },
   {
     name: "Agendar",
