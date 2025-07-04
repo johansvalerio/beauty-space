@@ -101,7 +101,7 @@ function CitasCard({ citas }: { citas: Citas }) {
   }
 
   return (
-    <div className="md:px-6 lg:px-8 py-10 mx-auto">
+    <div className="md:px-6 lg:px-8 py-20 mx-auto min-h-screen">
       <div className="grid grid-cols-1 place-items-center lg:grid-cols-3 gap-4 lg:gap-12">
         {userCitas
           .map((cita) => {
@@ -160,6 +160,10 @@ function CitasCard({ citas }: { citas: Citas }) {
                       </p>
                       <p className="text-md text-black">
                         Tipo de servicio: {cita?.cita_tiposervicio}
+                      </p>
+                      <p className="text-md text-black">
+                        Enviado el:{" "}
+                        {formatDate(cita?.cita_created_on?.toString())}
                       </p>
                       {updStatus === false || id !== cita.cita_id ? (
                         <p
