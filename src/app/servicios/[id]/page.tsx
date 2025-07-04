@@ -209,17 +209,19 @@ export default function ServiceDetailsPage({ params }: Params) {
   return (
     <div ref={ref}>
       <ParticlesLayer /> {/* efecto bubbles  */}
-      <section className="mx-4 my-10 md:m-16 text-center space-y-12">
+      <section className="mx-4 py-20 md:m-16 text-center space-y-12">
         <article>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.7, delay: 0, ease: "linear" }}
-            className="text-4xl font-bold text-white mb-4 uppercase"
+            className="text-4xl font-bold mb-20 uppercase"
           >
-            {serviceData.title.toLocaleLowerCase() === "pestanas"
-              ? "Servicio de Pestañas"
-              : "Servicio de " + serviceData.title}
+            <div className="dark:text-white text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-500 to-black bg-clip-text text-transparent">
+              {serviceData.title.toLocaleLowerCase() === "pestanas"
+                ? "Servicio de Pestañas"
+                : "Servicio de " + serviceData.title}
+            </div>
           </motion.h1>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
