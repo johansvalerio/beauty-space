@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import Particles from "@/components/Particles";
 import AuthProvider from "@/providers/auth-provider";
 import { ThemeProvider } from "@/contexts/ThemeContext";
@@ -83,6 +83,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        <link rel="manifest" href="/site.webmanifest" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
