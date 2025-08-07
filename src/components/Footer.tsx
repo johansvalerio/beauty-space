@@ -68,7 +68,7 @@ export default function Footer() {
         <p className="text-center text-gray-600">
           Created by Ing.{" "}
           <a
-            href="https://johansvalerio.vercel.app"
+            href="https://johansvalerio.up.railway.app"
             target="_blank"
             className="text-gray-400 hover:text-gray-500 underline underline-offset-2"
           >
