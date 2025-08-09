@@ -351,10 +351,10 @@ export const services: ServiceProps[] = [
                 price: "₡ 15.000"
             },
             {
-                title: "Pedicure Clínico",
-                description: "Atención especializada para tratar callos y problemas de pies, enfocada en su salud.",
+                title: "Spa en Seco",
+                description: "Hidratación y exfoliación con esmaltado en gel, para dejar los pies suaves y revitalizados.",
                 img: "/img/pedicura/pedicura-clinica.jpg",
-                price: "₡ 25.000"
+                price: "₡ 10.000"
             },
             {
                 title: "Pedicure Express",
@@ -366,7 +366,7 @@ export const services: ServiceProps[] = [
                 title: "Esmaltado Semipermanente",
                 description: "Acabado brillante y duradero por semanas, ideal para mantener las uñas impecables y estéticas.",
                 img: "/img/pedicura/esmaltado.jpg",
-                price: "₡ 10.000"
+                price: "₡ 7.000"
             }
 
         ]
@@ -381,17 +381,17 @@ export const services: ServiceProps[] = [
             {
                 title: "Depilación con cera o pinzas",
                 description: "Técnica de depilación que utiliza cera o pinzas para eliminar el vello, ideal para pieles sensibles y zonas pequeñas.",
-                price: "₡ 4.000"
+                price: "₡ 3.000"
             },
             {
                 title: "Laminado de cejas",
                 description: "Técnica que alisa y fija las cejas en una forma deseada, logrando un acabado natural y duradero.",
-                price: "₡ 7.000"
+                price: "₡ 8.000"
             },
             {
                 title: "Aplicación de henna",
                 description: "Técnica que utiliza henna para dar color y forma a las cejas, logrando un acabado natural y duradero.",
-                price: "₡ 5.000"
+                price: "₡ 3.000"
             }
         ]
     },

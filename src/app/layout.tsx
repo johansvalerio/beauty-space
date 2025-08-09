@@ -111,8 +111,15 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable}  antialiased bg-gradient-to-r from-white to-pink-300 dark:bg-gradient-to-r dark:from-pink-400 dark:via-black dark:to-black`}
+        className={`${geistSans.variable} ${geistMono.variable}  antialiased`}
       >
+        <div
+          className="fixed inset-0 -z-10
+    bg-white dark:bg-gray-900
+    [background-image:radial-gradient(circle_at_20%_30%,rgba(255,183,77,0.8)_0%,transparent_25%),radial-gradient(circle_at_80%_30%,rgba(100,181,246,0.8)_0%,transparent_25%),radial-gradient(circle_at_50%_70%,rgba(171,71,188,0.6)_0%,transparent_30%),radial-gradient(circle_at_80%_70%,rgba(236,64,122,0.6)_0%,transparent_25%)]
+    dark:[background-image:radial-gradient(circle_at_20%_30%,rgba(255,152,0,0.4)_0%,transparent_35%),radial-gradient(circle_at_80%_30%,rgba(30,136,229,0.4)_0%,transparent_35%),radial-gradient(circle_at_50%_70%,rgba(156,39,176,0.3)_0%,transparent_40%),radial-gradient(circle_at_80%_70%,rgba(233,30,99,0.3)_0%,transparent_35%)]
+    "
+        />
         <ThemeProvider>
           <AuthProvider>
             <Header />

@@ -3,11 +3,13 @@ import { Instagram, MessageCircle, MapPinIcon, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer id="info" className="bg-white mt-auto z-10 ">
+    <footer id="info" className="bg-white dark:bg-gray-900 mt-auto z-10 ">
       <div className="container mx-auto px-4 py-8 ">
         <div className="grid md:grid-cols-3 lg:justify-items-center gap-8  p-4">
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-black">Contacto</h4>
+            <h4 className="text-lg font-semibold mb-4 text-black dark:text-white">
+              Contacto
+            </h4>
             <div className="flex flex-col gap-4">
               <div className="flex">
                 <a
@@ -30,7 +32,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-black">
+            <h4 className="text-lg font-semibold mb-4 text-black dark:text-white">
               Sígueme en
             </h4>
             <div className="flex gap-4">
@@ -46,7 +48,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-black ">
+            <h4 className="text-lg font-semibold mb-4 text-black dark:text-white">
               Ubicación GPS
             </h4>
             <div className="flex gap-4">
