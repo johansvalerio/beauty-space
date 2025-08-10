@@ -79,7 +79,7 @@ export const services: ServiceProps[] = [
             {
                 title: "Soft Gel / Gel X",
                 description: "Extensiones de gel suave que proporcionan un acabado natural y flexible, ideales para uñas fuertes y de aspecto delicado.",
-                price: "₡ 13.000",
+                price: "₡ 12.000",
                 img: "/img/manicura/gelx.jpg"
             },
             {
@@ -121,7 +121,7 @@ export const services: ServiceProps[] = [
             {
                 title: "Esmaltado Semipermanente",
                 description: "Acabado brillante y duradero por semanas, ideal para mantener las uñas impecables sin deteriorarse.",
-                price: "₡ 10.000",
+                price: "₡ 7.000",
                 img: "/img/manicura/semipermanente.jpg"
             }
         ]
@@ -404,12 +404,12 @@ export const services: ServiceProps[] = [
             {
                 title: "Lifting de pestañas",
                 description: "Técnica que eleva y curva las pestañas naturales, logrando un efecto de mayor longitud y volumen sin necesidad de extensiones.",
-                price: "₡ 10.000"
+                price: "₡ 8.000"
             },
             {
-                title: "Técnica clásica",
+                title: "Pestañas de punto",
                 description: "Extensión de pestañas individuales para una mirada natural y definida.",
-                price: "₡ 11.000"
+                price: "₡ 8.000"
             }
         ]
     }
