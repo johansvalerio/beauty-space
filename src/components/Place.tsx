@@ -41,7 +41,7 @@ export default function Place() {
           transition={{ duration: 0.7, ease: "linear" }}
         >
           <img
-            src="/img/lugar.jpeg"
+            src="/img/place.jpg"
             className="w-full h-full object-cover rounded-lg md:rounded-tl-none md:rounded-bl-none max-w-full max-h-full"
             alt="Lugar de trabajo"
           />

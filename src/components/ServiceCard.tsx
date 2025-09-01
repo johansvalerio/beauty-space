@@ -29,7 +29,7 @@ export default function ServiceCard() {
     <section
       ref={ref}
       id="services"
-      className="scroll-mt-28 mb-20 px-4 md:mx-16 space-y-8 min-h-screen flex flex-col md:items-start items-center justify-center"
+      className="scroll-mt-28 mb-20 mt-20 px-4 md:mx-16 space-y-8 min-h-screen flex flex-col md:items-start items-center justify-center"
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}

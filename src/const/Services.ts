@@ -5,7 +5,7 @@ export const services: ServiceProps[] = [
         title: "Quiropodia",
         description: "Cuida la salud de tus pies con quiropodista certificada.",
         img: "/img/quiropodia.png",
-        price: "₡ 25.000",
+        price: "₡ 30.000",
         info: [
             {
 
@@ -121,7 +121,7 @@ export const services: ServiceProps[] = [
             {
                 title: "Esmaltado Semipermanente",
                 description: "Acabado brillante y duradero por semanas, ideal para mantener las uñas impecables sin deteriorarse.",
-                price: "₡ 7.000",
+                price: "₡ 8.000",
                 img: "/img/manicura/semipermanente.jpg"
             }
         ]
@@ -366,7 +366,7 @@ export const services: ServiceProps[] = [
                 title: "Esmaltado Semipermanente",
                 description: "Acabado brillante y duradero por semanas, ideal para mantener las uñas impecables y estéticas.",
                 img: "/img/pedicura/esmaltado.jpg",
-                price: "₡ 7.000"
+                price: "₡ 8.000"
             }
 
         ]
